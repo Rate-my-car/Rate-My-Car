@@ -3,6 +3,7 @@ create table users(
     first_name varchar(30),
     last_name varchar(30),
     email varchar(200),
+    user_picture varchar(250),
     password varchar(200),
     dealer boolean,
     admin boolean,
