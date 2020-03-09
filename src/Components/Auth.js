@@ -7,25 +7,32 @@ import {connect} from 'react-redux'
 
 
 const Auth = ({history, getUser}) => {
+    const [firstName, setFirstName] = useState("")
+    const  [lastName, setLastName] = useState("")
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [email, setEmail] = useState("")
+    const [registration, setReg] = useState(false)
     
   
   
-    // const register = () => {
-    //   axios.post("/auth/register", { username, password, email }).then(results => {
-    //     history.push("/")
-    //   })
-    // }
+    const register = () => {
+      axios.post("/auth/register", { email, username, password, firstName, lastName}).then(results => {
+        history.push("/")
+      })
+    }
   
   
-    // const login = () => {
-    //   axios.post("/auth/login", { username, password, email }).then(results => {
-    //     getUser(results.data)
-    //     history.push("/")
-    //   })
-    // }
+    const login = () => {
+      axios.post("/auth/login", { username, password, email }).then(results => {
+        getUser(results.data)
+        history.push("/")
+      })
+    }
+
+    const toggleReg = () => { 
+        setReg(!registration)
+    }
   
     
   
@@ -57,23 +64,44 @@ const Auth = ({history, getUser}) => {
                           onChange={e => setPassword(e.target.value)}
                   ></input>
               </div >
-              <div >
-                  <p>{'EMAIL:'}</p>
-                  <input
-                          name="email"
-                          value={email}
-                          placeholder="email"
-                          onChange={e => setEmail(e.target.value)}
-                  ></input>
-              </div>
-              <button
-                  
-                  onClick = {() => login()}
-                  >Login</button>
-              <button
-                  
-                  onClick = {() => register()}
-              >Register</button>
+                {registration ? 
+                    <div >
+                        <p>FIRST NAME:</p>
+                        <input
+                            name = 'fistName'
+                            value = {firstName}
+                            placeholder = 'First Name'
+                            onChange = {e => setFirstName(e.target.value)}
+                        />
+                        <p>LAST NAME:</p>
+                        <input
+                            name = 'lastName'
+                            value = {lastName}
+                            placeholder = 'Last Name'
+                            onChange = {e => setLastName(e.target.value)}
+                        />
+                        <p>{'EMAIL:'}</p>
+                        <input
+                            name="email"
+                            value={email}
+                            placeholder="email"
+                            onChange={e => setEmail(e.target.value)}
+                        />
+                        <button onClick = {toggleReg}>Go To Login</button>
+                        <button
+                        onClick = {() => register()}
+                        >Register</button>
+
+                    </div>
+                    :
+                    <div>
+                        <button onClick = {toggleReg}>Go To Registration</button>
+                        <button
+                            onClick = {login}
+                        >Login</button>
+                    </div>
+                }
+
               <button onClick={() => history.push('/')}>Take Me Back To HQ Home</button>
           </div>
       </div>
