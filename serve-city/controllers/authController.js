@@ -5,7 +5,6 @@ module.exports = {
         const{email, username, password, first_name, last_name, user_picture} = req.body
         const db = req.app.get('db')
         let checkUser = await db.users.get_email(email)
-        console.log(checkUser)
         if (!checkUser){
             return res.status(409).send('email is already used')
         }
