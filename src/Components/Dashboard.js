@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
 
 
 const Dashboard = () => {
@@ -8,8 +6,7 @@ const Dashboard = () => {
 
     return(
         <div>Dashboard
-            <Link to='/form' >Form</Link>
-            <Link to='/auth' >Auth</Link>
+            
         </div>
     )
 }
