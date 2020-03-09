@@ -5,18 +5,10 @@ import axios from 'axios'
 import {getUser} from '../Duxx/reducer'
 
 
-class Nav extends Component{
-    constructor(){
-        super()
-        this.state ={
+const Nav = () => {
 
-        }
-    }
-
-    render(){
-        return(
-            <div>Nav</div>
-        )
-    }
+    return(
+        <div></div>
+    )
 }
 export default Nav
