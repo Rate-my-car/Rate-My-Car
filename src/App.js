@@ -10,8 +10,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div>
+          <Nav />
           {routes}
-          <Dashboard />
         </div>
       </header>
     </div>
