@@ -11,6 +11,7 @@ function App() {
       <header className="App-header">
         <div>
           {routes}
+          <Dashboard />
         </div>
       </header>
     </div>
