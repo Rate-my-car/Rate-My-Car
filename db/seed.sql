@@ -22,7 +22,7 @@ create table car_ownership(
     user_id int REFERENCES users(user_id),
     current_owner boolean
 );
-create table car_maintence(
+create table car_maintenance(
     maint_id serial primary key,
     car_id int REFERENCES cars(car_id),
     user_id int REFERENCES users(user_id),
@@ -37,5 +37,6 @@ create table car_sale(
     sold boolean,
     desciption varchar(350),
     milage int,
-    price int
+    price int,
+    location varchar(50)
 )
