@@ -2,19 +2,10 @@ import React from 'react';
 
 
 
-class Profile extends Component{
-    constructor(){
-        super()
-        this.state = {
+const Profile = () => {
 
-        }
-    }
-
-    render(){
-        return(
-            <div>Profile</div>
-        )
-    }
+    return(
+        <div></div>
+    )
 }
-
 export default Profile
