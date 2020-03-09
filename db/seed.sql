@@ -28,7 +28,11 @@ create table car_maintenance(
     user_id int REFERENCES users(user_id),
     verified boolean,
     services_done varchar(150),
-    desciption varchar(350)
+    desciption varchar(350),
+    milage int,
+    date_serviced varchar(10),
+    date_verified varchar(10),
+    receipt varchar(250)
 );
 create table car_sale(
     maint_id serial primary key,
