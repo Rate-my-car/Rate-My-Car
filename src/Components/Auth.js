@@ -24,9 +24,10 @@ const Auth = ({history, getUser}) => {
   
   
     const login = () => {
-      axios.post("/auth/login", { username, password, email }).then(results => {
+      axios.post("/auth/login", { username, password }).then(results => {
         getUser(results.data)
         history.push("/")
+        
       })
     }
 
@@ -64,7 +65,7 @@ const Auth = ({history, getUser}) => {
                           onChange={e => setPassword(e.target.value)}
                   ></input>
               </div >
-                {registration ? 
+             
                     <div >
                         <p>FIRST NAME:</p>
                         <input
@@ -93,14 +94,14 @@ const Auth = ({history, getUser}) => {
                         >Register</button>
 
                     </div>
-                    :
+                    
                     <div>
                         <button onClick = {toggleReg}>Go To Registration</button>
                         <button
                             onClick = {login}
                         >Login</button>
                     </div>
-                }
+                
 
               <button onClick={() => history.push('/')}>Take Me Back To HQ Home</button>
           </div>

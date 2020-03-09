@@ -15,11 +15,11 @@ module.exports = {
         res.status(202).send(req.session.user)
     },
     async login(req, res){
-        const {email, password} = req.body
+        const {username, password} = req.body
         const db = req.app.get('db')
-        let user = await db.users.get_email(email)
+        let user = await db.users.get_username(username)
         if(!user[0]){
-            return res.status(401).send('email not registered')
+            return res.status(401).send('username not found')
         }
         let authenticated = bcrypt.compareSync(password, user[0].password)
         if(!authenticated){

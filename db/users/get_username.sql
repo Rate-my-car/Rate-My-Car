@@ -1,2 +1,2 @@
 select * from users
-where email = $1
+where username = $1
