@@ -8,6 +8,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "aws-sdk": "^2.636.0",
     "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
     "dotenv": "^8.2.0",
@@ -16,12 +17,15 @@
     "massive": "^6.2.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-dropzone": "^10.2.1",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
     "redux": "^4.0.5",
     "redux-promise-middleware": "^6.1.2",
-    "sessions": "0.0.2-7"
+    "sessions": "0.0.2-7",
+    "sweetalert2": "^9.10.0",
+    "uuid": "^7.0.2"
   },
   "scripts": {
     "start": "react-scripts start",

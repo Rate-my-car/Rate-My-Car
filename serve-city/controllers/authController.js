@@ -29,6 +29,9 @@ module.exports = {
         req.session.user = user[0]
         res.status(202).send(req.session.user)
     },
+    async editProfile(req,res){ 
+        
+    }, 
     logout(req, res){
         req.session.destroy()
         res.sendStatus(200)
