@@ -10,7 +10,7 @@ const MyVehicles = (props) => {
         const {description, milage, price, location, sold} = inputs
         const {user_id} = props.user
         axios.post('/api/sale', {user_id, description, milage, price, location, sold}).then(()=> {
-            props.history.push('/forSale')
+            props.history.push('/')
         })
     }
 
