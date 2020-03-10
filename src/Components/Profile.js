@@ -1,15 +1,17 @@
 import React, {useState} from 'react';
-import connect from 'react-redux';
+import {connect} from 'react-redux';
 import {v4 as randomString} from 'uuid'; 
 import Dropzone from 'react-dropzone'; 
 import axios from 'axios'; 
 import swal from 'sweetalert2'; 
+import {getUser} from '../Duxx/reducer'
+
+const Profile = (props) => {
 
 const[isUploading, setUploading] = useState(false); 
 const [userPicture, setUserPicture] = useState(''); 
 const [firstName, setFirstName] = useState("")
 const [lastName, setLastName] = useState("")
-const [username, setUsername] = useState("")
 const [email, setEmail] = useState("")
 
 const getSignedRequest = ([file]) => { 
@@ -24,7 +26,7 @@ const getSignedRequest = ([file]) => {
     })
     .then(response => { 
         const {signedRequest,url} = response.data; 
-        
+        setUserPicture(url)
         uploadFile(file,signedRequest,url); 
     })
     .catch(err => { 
@@ -51,7 +53,7 @@ const uploadFile = (file,signedRequest,url)  => {
             confirmButtonText: 'OK'
         })
         // alert(err);
-        if(err.response.status === 403){ 
+        if(err.response === 403){ 
             console.log(`Your request for a signed URL failed with a status 403.`); 
         }
         else {
@@ -61,16 +63,17 @@ const uploadFile = (file,signedRequest,url)  => {
 }
 
 const saveChanges = (userPicture, firstName, lastName, email) => { 
-
+    axios.post('/auth/profile', {userPicture,firstName,lastName,email}).then(res => getUser(res.data))
+    
 }
 
 
-const Profile = (props) => {
+
 
     return(
         <div>
             <img src = {props.user.userPicture} alt = 'no img available' />
-            <Dropzone onDropAccepted = {(file) => getSignedRequest(file, 'photo1')} accept = 'image/*' multiple= {false} >
+            <Dropzone onDropAccepted = {(file) => getSignedRequest(file)} accept = 'image/*' multiple= {false} >
                     {({getRootProps, getInputProps}) => (
                     <div  {...getRootProps()}>
                     <input {...getInputProps()} />
@@ -82,11 +85,11 @@ const Profile = (props) => {
             <h2>{props.user.username}</h2>
             <p>FIRST NAME:</p>
             <input value = {props.user.firstName} onChange = {e => setFirstName(e.target.value)}/>
-            <p>lAST NAME:</p>
+            <p>LAST NAME:</p>
             <input value  = {props.user.lastName} onChange = {e => setLastName(e.target.value)}/>
             <p>EMAIL:</p>
-            <input value = {props.user.email} onchange = {e => setEmail(e.target.value)} /> 
-            <button >Save Changes</button>
+            <input value = {props.user.email} onChange = {e => setEmail(e.target.value)} /> 
+            <button onClick = {() => saveChanges(userPicture, firstName,lastName, email)} >Save Changes</button>
         </div>
     )
 }
@@ -95,4 +98,4 @@ function mapStateToProps(state){
     return{user: state.reducer.user}
 }
 
-export default connect(mapStateToProps, null)(Profile); 
+export default connect(mapStateToProps, {getUser})(Profile); 

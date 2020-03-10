@@ -4,7 +4,7 @@ module.exports = {
     async register(req, res){
         const{email, username, password, firstName, lastName, user_picture} = req.body
         const db = req.app.get('db')
-        let checkUser = await db.users.get_email(email)
+        let checkUser = await db.users.get_username(email)
         if (!checkUser){
             return res.status(409).send('email is already used')
         }
@@ -30,7 +30,10 @@ module.exports = {
         res.status(202).send(req.session.user)
     },
     async editProfile(req,res){ 
-        
+        const {userPicture,firstName, lastName, email } = req.body; 
+        const db = req.app.get('db')
+        let user = await db.users.editProfile(userPicture,firstName,lastName,email)
+        res.status(200).send(user[0])
     }, 
     logout(req, res){
         req.session.destroy()
