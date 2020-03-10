@@ -2,6 +2,10 @@ const initialState = {
     user: {
         user_id: 0,
         username: '',
+        firstName: '', 
+        lastName: '', 
+        email: '', 
+        userPicture: ''
     }
 }
 
@@ -18,7 +22,7 @@ export default function (state = initialState, action) {
     const {type, payload} = action
     switch(type){
         case GET_USER:
-            return {user: payload}
+            return {...state, user: payload}
         default:
             return state
     }
