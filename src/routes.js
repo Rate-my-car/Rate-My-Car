@@ -6,6 +6,7 @@ import Form from './Components/Form'
 import Maps from './Components/Maps'
 import ForSale from './Components/ForSale'
 import Dashboard from './Components/Dashboard'
+import Profile from './Components/Profile';
 
 
 export default (
@@ -16,5 +17,6 @@ export default (
         <Route path = '/form' component={Form} />
         <Route path = '/maps' component = {Maps}/>
         <Route path = '/dashboard' component = {Dashboard} />
+        <Route path = '/profile' component = {Profile} />
     </Switch>
 )
