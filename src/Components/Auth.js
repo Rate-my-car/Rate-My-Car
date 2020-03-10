@@ -6,9 +6,9 @@ import {connect} from 'react-redux'
 
 
 
-const Auth = ({history, getUser}) => {
+const Auth = (props) => {
     const [firstName, setFirstName] = useState("")
-    const  [lastName, setLastName] = useState("")
+    const [lastName, setLastName] = useState("")
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [email, setEmail] = useState("")
@@ -18,7 +18,8 @@ const Auth = ({history, getUser}) => {
   
     const register = () => {
       axios.post("/auth/register", { email, username, password, firstName, lastName}).then(results => {
-        history.push("/")
+        getUser(results.data)
+        props.history.push("/")
       })
     }
   
@@ -26,8 +27,7 @@ const Auth = ({history, getUser}) => {
     const login = () => {
       axios.post("/auth/login", { username, password }).then(results => {
         getUser(results.data)
-        history.push("/")
-        
+        props.history.push("/")
       })
     }
 
@@ -103,7 +103,7 @@ const Auth = ({history, getUser}) => {
                     </div>
                 
 
-              <button onClick={() => history.push('/')}>Take Me Back To HQ Home</button>
+              <button onClick={() => props.history.push('/')}>Take Me Back To HQ Home</button>
           </div>
       </div>
     )
