@@ -32,3 +32,4 @@ app.post('/auth/logout', authCtrl.logout);
 app.post('/api/car', carCtrl.postCar)
 app.get('/api/user/cars', carCtrl.getMyCars)
 app.post('/api/maintenance', carCtrl.addMaintenance)
+app.post('/api/sale', carCtrl.addForSale)
