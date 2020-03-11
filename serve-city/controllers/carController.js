@@ -24,9 +24,7 @@ module.exports = {
         const db = req.app.get('db')
         const {car_id, description, milage, price, location} = req.body
         const {user_id} = req.session.user
-
         let carForSale = await db.cars.car_sale(car_id, user_id, description, milage, price, location)
-       
         res.status(200).send(carForSale)
     }
     

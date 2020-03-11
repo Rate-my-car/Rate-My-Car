@@ -12,7 +12,7 @@ export default (
     <Switch>
         <Route exact path = '/' component = {ForSale} />
         <Route path = '/auth' component = {Auth}/>
-        <Route path = '/MyVehicles' component = {MyVehicles} />
+        <Route path = '/MyVehicles/:id' component = {MyVehicles} />
         <Route path = '/form' component={Form} />
         <Route path = '/maps' component = {Maps}/>
         <Route path = '/dashboard' component = {Dashboard} />
