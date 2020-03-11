@@ -11,6 +11,7 @@ const Nav = () => {
         <div>
             <Link to='/dashboard'>Dashboard</Link>
             <Link to='/auth' >Auth</Link>
+            <Link to='/profile'>Profile</Link>
             <Link to='/MyVehicles' >My Vehicles</Link>
             <Link to='/' >For sale</Link>
             <Link to='/maps' >Maps</Link>

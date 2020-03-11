@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import Nav from './Components/Nav'
-import Auth from './Components/Auth'
 import Dashboard from './Components/Dashboard'
 import routes from './routes'
 

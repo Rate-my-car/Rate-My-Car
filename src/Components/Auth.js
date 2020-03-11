@@ -36,8 +36,6 @@ const Auth = (props) => {
     }
   
     
-  
-  
     return (
       <div>
   
