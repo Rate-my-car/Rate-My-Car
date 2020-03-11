@@ -1,11 +1,14 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios'
 import {withRouter} from 'react-router-dom'
 import {connect} from "react-redux"
 
 
 const MyVehicles = (props) => {
-    const [inputs, handleInputs] = useState({description: '', milage: '', price:'', location: '', sold: ''})
+    useEffect(()=> {
+    })
+    
+    const [inputs, handleInputs] = useState({description: '', milage: '', price:'', location: '', sold: '', car_id: 0})
     const postCar = () => {
         const {description, milage, price, location, sold} = inputs
         const {user_id} = props.user
@@ -13,8 +16,9 @@ const MyVehicles = (props) => {
             props.history.push('/')
         })
     }
-
-
+    
+    
+    console.log(props.match.params.id)
     console.log(props.user)
 
     return(

@@ -2,10 +2,11 @@ const bcrypt = require('bcryptjs')
 
 module.exports = {
     async register(req, res){
+        console.log(req.body)
         const{email, username, password, firstName, lastName, user_picture} = req.body
         const db = req.app.get('db')
         let checkUser = await db.users.get_username(email)
-        if (!checkUser){
+        if (!checkUser[0]){
             return res.status(409).send('email is already used')
         }
         let salt = bcrypt.genSaltSync(10)
@@ -13,6 +14,7 @@ module.exports = {
         let newUser = await db.users.register(email,firstName, lastName, hash ,username)
         delete newUser[0].password; 
         req.session.user = newUser[0]
+        console.log(req.session)
         res.status(202).send(req.session.user)
     },
     async login(req, res){
