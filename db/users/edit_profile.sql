@@ -1,6 +1,8 @@
-update table users
+update users
 set first_name = $2, 
-set last_name = $3, 
-set email = $4, 
-set user_picture = $5
+    last_name = $3, 
+    email = $4, 
+    user_picture = $5
+where user_id = $1;
+select * from users
 where user_id = $1
