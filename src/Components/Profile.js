@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import {v4 as randomString} from 'uuid'; 
 import Dropzone from 'react-dropzone'; 
@@ -11,9 +11,9 @@ const Profile = (props) => {
 
 const[isUploading, setUploading] = useState(false); 
 const [userPicture, setUserPicture] = useState(''); 
-const [firstName, setFirstName] = useState("")
-const [lastName, setLastName] = useState("")
-const [email, setEmail] = useState("")
+const [firstName, setFirstName] = useState('')
+const [lastName, setLastName] = useState('')
+const [email, setEmail] = useState('')
 
 const getSignedRequest = ([file]) => { 
         
@@ -27,7 +27,6 @@ const getSignedRequest = ([file]) => {
     })
     .then(response => { 
         const {signedRequest,url} = response.data; 
-        setUserPicture(url)
         uploadFile(file,signedRequest,url); 
     })
     .catch(err => { 
@@ -44,6 +43,7 @@ const uploadFile = (file,signedRequest,url)  => {
     axios.put(signedRequest,file,options)
     .then(res => { 
         setUploading(false)
+        setUserPicture(url)
     })
     .catch(err => { 
         setUploading(false); 
@@ -63,17 +63,23 @@ const uploadFile = (file,signedRequest,url)  => {
     })
 }
 
-const saveChanges = (userPicture, firstName, lastName, email) => { 
-    axios.post('/auth/profile', {userPicture,firstName,lastName,email}).then(res => getUser(res.data))
+const saveChanges = (user_id,userPicture, firstName, lastName, email) => { 
+    
+    if(!userPicture){userPicture = props.user.userPicture;}
+    if(!firstName){firstName = props.user.first_name;}
+    if(!lastName){lastName = props.user.last_name;}
+    if(email){email = props.user.email;}
+    axios.post('/auth/profile', {user_id,userPicture,firstName,lastName,email}).then(res => getUser(res.data))
     
 }
 
 
-
+// useEffect()
 
     return(
+        console.log(props.user),
         <div>
-            <img src = {props.user.userPicture} alt = 'no img available' />
+            <img src = {userPicture} />
             <Dropzone onDropAccepted = {(file) => getSignedRequest(file)} accept = 'image/*' multiple= {false} >
                     {({getRootProps, getInputProps}) => (
                     <div  {...getRootProps()}>
@@ -85,12 +91,12 @@ const saveChanges = (userPicture, firstName, lastName, email) => {
             </Dropzone>
             <h2>{props.user.username}</h2>
             <p>FIRST NAME:</p>
-            <input value = {props.user.firstName} onChange = {e => setFirstName(e.target.value)}/>
+            <input placeholder = {props.user.first_name} onChange = {e => setFirstName(e.target.value)}/>
             <p>LAST NAME:</p>
-            <input value  = {props.user.lastName} onChange = {e => setLastName(e.target.value)}/>
+            <input placeholder  = {props.user.last_name} onChange = {e => setLastName(e.target.value)}/>
             <p>EMAIL:</p>
-            <input value = {props.user.email} onChange = {e => setEmail(e.target.value)} /> 
-            <button onClick = {() => saveChanges(userPicture, firstName,lastName, email)} >Save Changes</button>
+            <input placeholder = {props.user.email} onChange = {e => setEmail(e.target.value)} /> 
+            <button onClick = {() => saveChanges(props.user.user_id,userPicture, firstName,lastName, email)} >Save Changes</button>
         </div>
     )
 }
