@@ -1,11 +1,11 @@
 require('dotenv').config()
 const express = require('express')
 const massive = require('massive')
+const session = require('express-session')
 const {SERVER_PORT, CONNECTION_STRING , SESSION_SECRET,
     S3_BUCKET, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY} = process.env
 const app = express()
 const aws = require('aws-sdk') 
-const session = require('express-session')
 const authCtrl = require('./controllers/authController')
 const carCtrl = require('./controllers/carController')
 const cors = require('cors')
@@ -17,7 +17,7 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
     secret: SESSION_SECRET,
-    cookie: {maxAge: 100 * 60 * 60}
+    cookie: {maxAge: 1000 * 60 * 60}
 }))
 
 
@@ -66,3 +66,5 @@ app.post('/api/car', carCtrl.postCar)
 app.get('/api/user/cars', carCtrl.getMyCars)
 app.post('/api/maintenance', carCtrl.addMaintenance)
 app.post('/api/sale', carCtrl.addForSale)
+app.get('/api/cars/:id', carCtrl.getCar)
+app.get('/api/maintenance/:id', carCtrl.getMaintenance)

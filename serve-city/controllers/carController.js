@@ -1,6 +1,7 @@
 module.exports = {
     async postCar(req, res){
         const {make, model, year, vin} = req.body
+        console.log(req.session)
         const {user_id} = req.session.user
         const db = req.app.get('db')
         let newCar = await db.cars.post_car(make, model, year, vin)
@@ -26,6 +27,19 @@ module.exports = {
         const {user_id} = req.session.user
         let carForSale = await db.cars.car_sale(car_id, user_id, description, milage, price, location)
         res.status(200).send(carForSale)
+    },
+    async getCar(req,res){
+        const db = req.app.get('db')
+        const {id} = req.params
+        console.log(id)
+        let car = await db.cars.get_car(id)
+        console.log(car)
+        res.status(200).send(car)
+    },
+    async getMaintenance(req, res){
+        const db = req.app.get('db')
+        const {id} = req.params
+        let maintenance = await db.cars.get_my_services(id)
+        res.status(200).send(maintenance)
     }
-    
 }

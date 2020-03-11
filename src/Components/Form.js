@@ -10,7 +10,7 @@ const Form = (props) => {
     const postCar = () => {
         const {model, make, year, vin} = inputs
         axios.post('/api/car', {model, make, year, vin}).then((res)=> {
-            props.history.push(`/MyVehicles/${res.data[0].car_id}`)
+            props.history.push(`/vehicles/${res.data[0].car_id}`)
         })
     }
     return(
