@@ -8,7 +8,9 @@ const aws = require('aws-sdk')
 const session = require('express-session')
 const authCtrl = require('./controllers/authController')
 const carCtrl = require('./controllers/carController')
+const cors = require('cors')
 app.use(express.json())
+app.use(cors())
 
 
 app.use(session({
