@@ -9,6 +9,7 @@ create table users(
     dealer boolean,
     admin boolean,
     premium boolean
+    -- username 
 );
 create table cars(
     car_id serial primary key,
@@ -29,7 +30,7 @@ create table car_maintenance(
     user_id int REFERENCES users(user_id),
     verified boolean,
     services_done varchar(150),
-    desciption varchar(350),
+    description varchar(350),
     milage int,
     date_serviced varchar(10),
     date_verified varchar(10),
@@ -40,8 +41,9 @@ create table car_sale(
     car_id int REFERENCES cars(car_id),
     user_id int REFERENCES users(user_id),
     sold boolean,
-    desciption varchar(350),
+    description varchar(350),
     milage int,
     price int,
     location varchar(50)
+    -- owner info 
 )

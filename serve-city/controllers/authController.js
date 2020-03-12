@@ -11,8 +11,8 @@ module.exports = {
         }
         let salt = bcrypt.genSaltSync(10)
         let hash = bcrypt.hashSync(password, salt)
-        let newUser = await db.users.register(email,firstName, lastName, hash ,username, user_picture)
-        console.log(newUser[0])
+        let newUser = await db.users.register(email,firstName, lastName, hash ,username)
+        delete newUser[0].password; 
         req.session.user = newUser[0]
         console.log(req.session)
         res.status(202).send(req.session.user)
@@ -33,9 +33,10 @@ module.exports = {
         res.status(202).send(req.session.user)
     },
     async editProfile(req,res){ 
-        const {userPicture,firstName, lastName, email } = req.body; 
+        const {user_id, userPicture,firstName, lastName, email } = req.body; 
         const db = req.app.get('db')
-        let user = await db.users.editProfile(userPicture,firstName,lastName,email)
+        console.log(firstName , lastName)
+        let user = await db.users.edit_profile(user_id, firstName,lastName,email,userPicture)
         res.status(200).send(user[0])
     }, 
     logout(req, res){
