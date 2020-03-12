@@ -5,6 +5,7 @@ create table users(
     email varchar(200),
     user_picture varchar(250),
     password varchar(200),
+    username varchar(20),
     dealer boolean,
     admin boolean,
     premium boolean
