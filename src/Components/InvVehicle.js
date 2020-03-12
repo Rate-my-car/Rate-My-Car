@@ -20,6 +20,10 @@ const InvVehicle = (props) => {
     },[])
     console.log()
     const [mounting, handleMount] = useState({make: '', model: '', year: 0, vin: ''})
+    const [rendering, changeRender] = useState({bool: false})
+    const clicker = () => {
+        changeRender({...rendering, bool: !rendering.bool})
+    }
     return(
         <div>
             <span>{mounting.make}</span>
@@ -27,7 +31,11 @@ const InvVehicle = (props) => {
             <span>{mounting.year}</span>
             <span>{mounting.vin}</span>
             <Services id={props.match.params.id} />
-            <ServiceForm id={props.match.params.id} />
+            {!rendering.bool ? (
+                <button onClick={clicker}>Post Maintenance</button>
+            ):(
+                <ServiceForm clicker={clicker} id={props.match.params.id} />
+            )}
         </div>
     )
 }
