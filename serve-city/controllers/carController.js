@@ -28,18 +28,16 @@ module.exports = {
         let carForSale = await db.cars.car_sale(car_id, user_id, description, milage, price, location)
         res.status(200).send(carForSale)
     },
-<<<<<<< HEAD
 
     getForSale: (req, res) => {
         const db = req.app.get('db')
 
         db.cars.get_for_sale()
         .then((results) => res.status(200).send(results))
-    }
+    },
 
 
     
-=======
     async getCar(req,res){
         const db = req.app.get('db')
         const {id} = req.params
@@ -54,5 +52,4 @@ module.exports = {
         let maintenance = await db.cars.get_my_services(id)
         res.status(200).send(maintenance)
     }
->>>>>>> master
 }

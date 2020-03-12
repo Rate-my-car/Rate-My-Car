@@ -29,7 +29,7 @@ const Dashboard = (props) => {
                 INFO Container
             </div>
             <div>
-                TOP 5 MAINTAINED
+                Featured
                 {carsForSale.map(cars => {
                     return(
                         <div>
