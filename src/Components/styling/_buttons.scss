@@ -1,0 +1,30 @@
+
+@mixin red-button{
+    text-align: center;
+    font-family: $display-font;
+    font-size: 12px;
+    letter-spacing: 0.96px;
+    color: #FFFFFF;
+    padding: 12px 22px;
+    background-color: $red;
+}
+
+@mixin red-button-click{
+    background-color: #ED7272;
+}
+
+@mixin gray-button{
+    text-align: center;
+    font-family: $display-font;
+    font-size: 12px;
+    letter-spacing: 0.96px;
+    color: #FFFFFF;
+    padding: 12px 22px;
+    background-color: $light-gray;
+}
+
+@mixin gray-button-click{
+    background-color: $lighter-gray;
+}
+
+
