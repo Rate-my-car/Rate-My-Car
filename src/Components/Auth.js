@@ -16,9 +16,9 @@ const Auth = (props) => {
     
   
   
-    const register = () => {
+    const register = (props) => {
       axios.post("/auth/register", { email, username, password, firstName, lastName}).then(results => {
-        getUser(results.data)
+        props.getUser(results.data)
         props.history.push("/")
       })
     }
@@ -26,7 +26,7 @@ const Auth = (props) => {
   
     const login = () => {
       axios.post("/auth/login", { username, password }).then(results => {
-        getUser(results.data)
+        props.getUser(results.data)
         props.history.push("/")
       })
     }
@@ -36,8 +36,6 @@ const Auth = (props) => {
     }
   
     
-  
-  
     return (
       <div>
   
@@ -96,7 +94,7 @@ const Auth = (props) => {
                     </div>
                     
                     <div>
-                        <button onClick = {toggleReg}>Go To Registration</button>
+                        
                         <button
                             onClick = {login}
                         >Login</button>

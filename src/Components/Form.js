@@ -9,8 +9,8 @@ const Form = (props) => {
     const [inputs, handleInputs] = useState({model: '', make: '', year: '', vin: ''})
     const postCar = () => {
         const {model, make, year, vin} = inputs
-        axios.post('/api/car', {model, make, year, vin}).then(()=> {
-            props.history.push('/MyVehicles')
+        axios.post('/api/car', {model, make, year, vin}).then((res)=> {
+            props.history.push(`/vehicles/${res.data[0].car_id}`)
         })
     }
     return(
