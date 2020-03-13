@@ -12,12 +12,14 @@ const Auth = (props) => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [email, setEmail] = useState("")
+    const [userPicture, setUserPicture] = useState("")
     const [registration, setReg] = useState(false)
     
   
   
-    const register = (props) => {
-      axios.post("/auth/register", { email, username, password, firstName, lastName}).then(results => {
+    const register = () => {
+      axios.post("/auth/register", { email, username, password, firstName, lastName, userPicture}).then(results => {
+        
         props.getUser(results.data)
         props.history.push("/")
       })
