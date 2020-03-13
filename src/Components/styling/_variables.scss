@@ -14,3 +14,12 @@ $input-light-text: #67747C;
 // Fonts
 $display-font: 'Poppins', sans-serif;
 $body-copy: 'Open Sans', sans-serif;
+
+
+
+@mixin red-line{
+    width: 176px;
+    height: 3px;
+    border: none;
+    background-color: $red;
+}
