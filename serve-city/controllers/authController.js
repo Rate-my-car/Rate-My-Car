@@ -6,7 +6,7 @@ module.exports = {
         const{email, username, password, firstName, lastName, user_picture} = req.body
         const db = req.app.get('db')
         let checkUser = await db.users.get_username(email)
-        if (!checkUser[0]){
+        if (checkUser[0]){
             return res.status(409).send('email is already used')
         }
         let salt = bcrypt.genSaltSync(10)
