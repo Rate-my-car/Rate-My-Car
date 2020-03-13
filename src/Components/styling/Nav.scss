@@ -37,8 +37,10 @@ header{
         width: 708px;
     };
     @include landscape-tablet{
+        width: 872px;
     };
     @include desktop{
+        width: 1140px;
     };
 }
 
@@ -170,10 +172,13 @@ hr{
         display: flex;
         justify-content: space-between;
         align-items: center;
+        width: 708px;
     };
     @include landscape-tablet{
+        width: 872px;
     };
     @include desktop{
+        width: 1140px;
     };  
 }
 
@@ -193,5 +198,5 @@ hr{
 .header-profile-pic{
     width: 56px;
     height: 56px;
-    
+    object-fit: cover;
 }

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Link} from 'react-router-dom'
-import axios from 'axios'
+// import axios from 'axios'
 import {getUser} from '../Duxx/reducer'
 import logo from './styling/checkup-logo-header.svg'
 import './styling/Nav.scss'
@@ -35,8 +35,9 @@ const Nav = (props) => {
                                     <Link to='/MyVehicles' className='nav-link'>My Vehicles</Link>
                                     <div className='profile-container'>
                                         <img src={props.user.userPicture} className= 'header-profile-pic' alt='user profile pic'/>
-                                        <div className='welcome-user-container'>
-                                            Welcome {props.user.first_name}
+                                        <div className='welcome-user-container' className='nav-link'>
+                                            Welcome <br/>
+                                            {props.user.first_name} {props.user.last_name.splice(0,1)}.
                                         </div>
                                     </div>
                                 </nav>
