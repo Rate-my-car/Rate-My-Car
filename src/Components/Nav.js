@@ -15,9 +15,6 @@ const Nav = (props) => {
         setToggleDropdown(!toggleDropdown)
     }
 
-    
-   
-
     return(
         <div>
             <div className='header-container'>
@@ -29,15 +26,15 @@ const Nav = (props) => {
                             <Link to='/ForSale' className='nav-link'>Cars for Sale</Link>
                             <Link to='/maps' className='nav-link'>Service Locator</Link>
                         </nav>
-                        <nav className='header-right'>
+                        <nav >
                             {props.user.user_id ? (
-                                <nav>
+                                <nav className='header-right'>
                                     <Link to='/MyVehicles' className='nav-link'>My Vehicles</Link>
                                     <div className='profile-container'>
-                                        <img src={props.user.userPicture} className= 'header-profile-pic' alt='user profile pic'/>
-                                        <div className='welcome-user-container' className='nav-link'>
+                                        <img src={props.user.user_picture} className= 'header-profile-pic' alt='user profile pic'/>
+                                        <div id='welcome-user-container' className='nav-link'>
                                             Welcome <br/>
-                                            {props.user.first_name} {props.user.last_name.splice(0,1)}.
+                                            {props.user.first_name}
                                         </div>
                                     </div>
                                 </nav>
@@ -57,14 +54,14 @@ const Nav = (props) => {
                 <div className='dropdown-container'>
                     <div className='dropdown-nav-links'>
                         {props.user.user_id ? (
-                            <nav>
+                            <nav id='dropdown-user-info'>
                                 <p className='nav-link' id='dropdown-welcome-text'>
-                                    Welcome
+                                Welcome
                                 </p>
                                 <p id='dropdown-username'>
-                                    {props.user.first_name} {props.user.last_name.splice(0,1)}.
+                                    {props.user.first_name}
                                 </p>
-                                <Link to='/MyVehicles' className='nav-link' onClick={showDropdown}>My Vehicles</Link>
+                                <Link to='/MyVehicles' className='nav-link' id='dropdown-my-vehicles' onClick={showDropdown}>My Vehicles <br/></Link>
                             </nav>
                         ) : (
                             <Link to='/auth' className='nav-link' onClick={showDropdown}>Login/Register</Link>
@@ -89,14 +86,3 @@ function mapStateToProps(state){
 }
 
 export default connect(mapStateToProps, {getUser})(withRouter(Nav));
-
-
-
-
-{/* <Link to='/dashboard'>Dashboard</Link>
-<Link to='/auth' >Auth</Link>
-<Link to='/profile'>Profile</Link>
-<Link to='/MyVehicles' >My Vehicles</Link>
-<Link to='/' >For sale</Link>
-<Link to='/maps' >Maps</Link>
-<Link to='/form' >Form</Link> */}

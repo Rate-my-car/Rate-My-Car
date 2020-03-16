@@ -99,6 +99,19 @@ header{
     z-index: 200px;
     position: fixed;
     top: 74px;
+    @include small-phone{
+    };
+    @include large-phone{
+    };
+    @include portrait-tablet{
+        display: none;
+    };
+    @include landscape-tablet{
+        display: none;
+    };
+    @include desktop{
+        display: none;
+    };
 }
 
 .dropdown-nav-links{
@@ -122,6 +135,7 @@ header{
     font-family: $body-copy;
     font-weight: 600;
     letter-spacing: 0.8px;
+    // text-align: left;
     @include small-phone{
         padding: 20px 0;
         font-size: 17px;
@@ -141,17 +155,23 @@ header{
 }
 
 #dropdown-welcome-text{
-    padding-bottom: 0;
+    padding: 0;
+    margin-bottom: 0;
     font-size: 19px;
+    text-align: left;
 }
 
 #dropdown-username{
     @include heading-2;
     color: white;
-    padding-bottom: 20px
+    margin: 0;
+    padding-bottom: 20px;
+    text-align: left;
 }
 
-
+#dropdown-user-info{
+    margin-bottom: 20px;
+}
 
 #dropdown-line{
     // margin-left: 0px;
@@ -193,8 +213,27 @@ header{
     };  
 }
 
+.header-right{
+    display: flex;
+    // justify-content: space-between;
+    align-items: center;
+    // width: 300px;
+}
+
+.profile-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 40px;
+}
+
 .header-profile-pic{
     width: 56px;
     height: 56px;
     object-fit: cover;
+}
+
+#welcome-user-container{
+    text-align: left;
+    padding-left: 10px;
 }
