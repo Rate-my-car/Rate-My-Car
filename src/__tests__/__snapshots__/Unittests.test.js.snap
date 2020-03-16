@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Routes will work will bring you to the dashboard "/" 1`] = `
+<a
+  href="#/"
+  onClick={[Function]}
+/>
+`;
+
+exports[`Routes will work will bring you to the dashboard "/" 2`] = `
+<a
+  href="#/"
+  onClick={[Function]}
+/>
+`;
+
+exports[`Routes will work will bring you to the for sale page "/ForSale" 1`] = `
+<a
+  href="#/"
+  onClick={[Function]}
+/>
+`;
+
+exports[`Routes will work will bring you to the form "/form" 1`] = `
+<a
+  href="#/form"
+  onClick={[Function]}
+/>
+`;
+
+exports[`Routes will work will bring you to the maps "/maps" 1`] = `
+<a
+  href="#/maps"
+  onClick={[Function]}
+/>
+`;
+
+exports[`Routes will work will bring you to the profile "/profile" 1`] = `
+<a
+  href="#/profile"
+  onClick={[Function]}
+/>
+`;
