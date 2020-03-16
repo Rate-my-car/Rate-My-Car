@@ -17,8 +17,8 @@ module.exports = {
     async addMaintenance(req, res){
         const db = req.app.get('db')
         const {user_id} = req.session.user
-        const {car_id, description, service_done, milage, date_serviced, receipt} = req.body
-        let newMaintenance = await db.cars.add_maintenance(user_id, car_id, description, service_done, milage, date_serviced, receipt)
+        const {id, description, service_done, milage, date_serviced, receipt} = req.body
+        let newMaintenance = await db.cars.add_maintenance(user_id, id, description, service_done, milage, date_serviced, receipt)
         res.status(200).send(newMaintenance)
     },
     async addForSale(req, res){
@@ -29,10 +29,11 @@ module.exports = {
         res.status(200).send(carForSale)
     },
 
-    getForSale: (req, res) => {
+    async getForSale(req, res) {
         const db = req.app.get('db')
+        const {make, model, year, owner, milage, price} = req.body
 
-        db.cars.get_for_sale()
+        db.cars.get_for_sale(make, model, year, owner, milage, price)
         .then((results) => res.status(200).send(results))
     },
 

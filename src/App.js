@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import Nav from './Components/Nav'
 import Dashboard from './Components/Dashboard'
 import routes from './routes'

@@ -3,6 +3,7 @@ import useAxios from '../hooks/useAxios'
 
 const ForSale = () => {
     const [carsForSale] = useAxios('/api/forsale')
+    console.log(carsForSale)
 
     // const pushForSale = (car_id) => {
 
