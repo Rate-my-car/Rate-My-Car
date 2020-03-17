@@ -12,20 +12,29 @@ hr{
 
 h1{
   @include heading-1;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 h2{
   @include heading-2;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
-
 h3{
   @include heading-3;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 h4{
   @include heading-4;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 h5{
   @include heading-5;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }

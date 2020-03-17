@@ -1,47 +1,91 @@
-@import './variables';
-@import './media-queries';
+@import "./variables";
+@import "./media-queries";
 
-.footer-container{
-    width: 100%;
-    height: 75px;
-    border-top: 1.25px solid $lighter-gray;
-    display: flex;
-    justify-content: center;
+.footer-container {
+  width: 100%;
+  height: 75px;
+  border-top: 1.25px solid $lighter-gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include small-phone {
+    height: 150px;
+  }
+  @include large-phone {
+  }
+  @include portrait-tablet {
+  }
+  @include landscape-tablet {
+  }
+  @include desktop {
+  }
+}
+
+footer {
+  margin: 0 auto;
+  display: flex;
+  //   align-items: center;
+  justify-content: space-between;
+  @include small-phone {
+    width: 325px;
+  }
+  @include large-phone {
     align-items: center;
-}
-
-footer{
-    margin: 0 auto;
-    display: flex;
+    width: 540px;
+  }
+  @include portrait-tablet {
     align-items: center;
-    justify-content: space-between;
-    @include small-phone{
-        width: 325px;
-    };
-    @include large-phone{
-        width: 540px;
-    };
-    @include portrait-tablet{
-        width: 708px;
-    };
-    @include landscape-tablet{
-        width: 872px;
-    };
-    @include desktop{
-        width: 1140px;
-    };
+    width: 708px;
+  }
+  @include landscape-tablet {
+    align-items: center;
+    width: 872px;
+  }
+  @include desktop {
+    align-items: center;
+    width: 1140px;
+  }
 }
 
-.footer-logo{
-    height: 45px;
+.footer-logo {
+  height: 45px;
+  @include small-phone {
+    padding: 10px 0;
+  }
 }
 
-.footer-nav-link{
-    padding-left: 15px;
-    color: $light-gray;
-    text-decoration: none;
-    font-family: $body-copy;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.8px;
+.footer-right {
+  display: flex;
+  @include small-phone {
+    flex-direction: column;
+  }
+  @include large-phone {
+  }
+  @include portrait-tablet {
+  }
+  @include landscape-tablet {
+  }
+  @include desktop {
+  }
+}
+
+.footer-nav-link {
+  padding-left: 15px;
+  color: $light-gray;
+  text-decoration: none;
+  font-family: $body-copy;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  @include small-phone {
+    padding: 10px 0;
+  }
+  @include large-phone {
+  }
+  @include portrait-tablet {
+  }
+  @include landscape-tablet {
+  }
+  @include desktop {
+  }
 }
