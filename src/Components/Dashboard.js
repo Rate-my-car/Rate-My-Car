@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 // import useAxios from '../hooks/useAxios';
 
 import axios from 'axios'
-
+import './styling/Dashboard.scss'
 
 const Dashboard = (props) => {
     const [carsForSale, setFeatured] = useState([])
@@ -24,12 +24,19 @@ const Dashboard = (props) => {
 
 
     return(
-        <div>Dashboard
-            <div>
-                INFO Container
+        <div className='dashboard-container'>
+            <div className='hero-container'>
+                <div className='hero'>
+                    <div className='hero-content'>
+                        <h1 id='hero-heading-text'>Welcome to Checkup!</h1>
+                        <hr id='hero-line'/>
+                        <p id='hero-body-copy'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
+                    </div>
+                </div>
             </div>
             <div>
-                Featured
+                
+                Featured Vehicles
                 {carsForSale.map(cars => {
                     return(
                         <div>
