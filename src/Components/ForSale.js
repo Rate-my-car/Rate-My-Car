@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import useAxios from '../hooks/useAxios'
 
 const ForSale = () => {
-    const [carsForSale] = useAxios('/api/forsale')
+    const [carsForSale] = useAxios('/api/ForSale')
     console.log(carsForSale)
 
     // const pushForSale = (car_id) => {

@@ -34,12 +34,12 @@ const Dashboard = (props) => {
                     return(
                         <div>
                            
-                            YEAR:<div>{cars.year}</div>
+                            {/* YEAR:<div>{cars.year}</div>
                             MAKE:<div>{cars.make}</div>
                             MODEL:<div>{cars.model}</div>
                             OWNER: <div>{cars.username}</div>
                             MILAGE:<div>{cars.milage}</div>
-                            PRICE:<div>{cars.price}</div>
+                            PRICE:<div>{cars.price}</div> */}
                             
                             {/* OWNERINFO */}
                             <button> Details </button>
