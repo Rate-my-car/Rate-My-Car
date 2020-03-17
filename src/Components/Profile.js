@@ -3,9 +3,9 @@ import {connect} from 'react-redux';
 import {v4 as randomString} from 'uuid'; 
 import Dropzone from 'react-dropzone'; 
 import axios from 'axios'; 
-
 import swal from 'sweetalert2'; 
 import {getUser} from '../Duxx/reducer'
+import './styling/Profile.scss'
 
 const Profile = (props) => {
 
@@ -14,6 +14,17 @@ const [userPicture, setUserPicture] = useState('');
 const [firstName, setFirstName] = useState('')
 const [lastName, setLastName] = useState('')
 const [email, setEmail] = useState('')
+const [edit, setEdit] = useState(false)
+
+const toggleEdit  = () => {
+    setEdit(!edit)
+}
+console.log(props.user)
+const logout = () => {
+    axios.post('/auth/logout')
+    .then(props.getUser({}))
+    .then(props.history.push('/'))
+}
 
 const getSignedRequest = ([file]) => { 
         
@@ -65,38 +76,83 @@ const uploadFile = (file,signedRequest,url)  => {
 
 const saveChanges = (user_id,userPicture, firstName, lastName, email) => { 
     
-    if(!userPicture){userPicture = props.user.userPicture;}
+    if(!userPicture){userPicture = props.user.user_picture;}
     if(!firstName){firstName = props.user.first_name;}
     if(!lastName){lastName = props.user.last_name;}
-    if(email){email = props.user.email;}
+    if(!email){email = props.user.email;}
     axios.post('/auth/profile', {user_id,userPicture,firstName,lastName,email}).then(res => getUser(res.data))
-    
 }
+
 
 
 // useEffect()
 
     return(
-        console.log(props.user),
-        <div>
-            <img src = {userPicture} />
-            <Dropzone onDropAccepted = {(file) => getSignedRequest(file)} accept = 'image/*' multiple= {false} >
-                    {({getRootProps, getInputProps}) => (
-                    <div  {...getRootProps()}>
-                    <input {...getInputProps()} />
-                        {isUploading ? <span>Loading...</span> : 
-                        <span className = 'dropzone'>Click Here to Upload Picture</span>}
+        // console.log(props.user)
+        <div className='profile-page-container'>
+            <img className='profile-hero-pic' src='https://rate-my-car.s3-us-west-1.amazonaws.com/772fcf58-0f8a-4915-b731-1e4a21ead2f6-tekton-UuO9Jdu2d7E-unsplash-flipped.jpg' alt='Mechanic Tools'/>
+            <div className='profile-primary-info'>
+                <div className='current-profile-pic-container'>
+                    <img className='current-profile-pic' src={props.user.user_picture} alt='Users Profile Picture'/>
+                </div>
+                <div className='username-container'>
+                    <p className='profile-sub-heading'>Username</p>
+                    <h2>{props.user.username}</h2>
+                    <hr className='profile-line'/>
+                </div>
+            </div>
+            <div className='profile-secondary-info-container'>
+                <div className='profile-secondary-info'>
+                    <p className='profile-sub-heading'>First Name</p>
+                    <h3 id='secondary-info'>{props.user.first_name}</h3>
+                </div>
+                <div className='profile-secondary-info'>
+                    <p className='profile-sub-heading'>Last Name</p>
+                    <h3 id='secondary-info'>{props.user.last_name}</h3>
+                </div>
+                <div className='profile-secondary-info'>
+                    <p className='profile-sub-heading'>Email</p>
+                    <h3 id='secondary-info'>{props.user.email}</h3>
+                </div>
+                <button className='profile-edit-button' onClick={toggleEdit}>Edit</button>
+            </div>
+            <button className='logout-btn' onClick={logout}>Logout</button>
+            
+
+
+            {edit ? (
+                <div >
+                    <div className='edit-profile-pop-up-container'>
+                        <h2 className='popup-heading'>Update Profile</h2>
+                        <hr/>
+                        {userPicture ? (
+                            <img className='new-profile-pic' src={null || userPicture} />
+                        ) : (
+                            <Dropzone onDropAccepted = {(file) => getSignedRequest(file)} accept = 'image/*' multiple= {false} >
+                                {({getRootProps, getInputProps}) => (
+                                <div  className='dropzone-btn' {...getRootProps()}>
+                                <input {...getInputProps()} />
+                                    {isUploading ? <span>Loading...</span> : 
+                                    <span>Upload New Profile Pic</span>}
+                                </div>
+                            )}
+                        </Dropzone>
+                        )}
+                        
+                        <input placeholder='First Name' className='popup-input' onChange = {e => setFirstName(e.target.value)}/>
+                        <input placeholder='Last Name' className='popup-input' onChange = {e => setLastName(e.target.value)}/>
+                        <input placeholder='Email' className='popup-input' onChange = {e => setEmail(e.target.value)} /> 
+                        <div className='edit-profile-btns'>
+                            <button className='cancel-btn' onClick={toggleEdit}>Cancel</button>
+                            <button className='save-btn' onClick = {() => saveChanges(props.user.user_id,userPicture, firstName,lastName, email)}>Save</button>
+                        </div>
                     </div>
-                )}
-            </Dropzone>
-            <h2>{props.user.username}</h2>
-            <p>FIRST NAME:</p>
-            <input placeholder = {props.user.first_name} onChange = {e => setFirstName(e.target.value)}/>
-            <p>LAST NAME:</p>
-            <input placeholder  = {props.user.last_name} onChange = {e => setLastName(e.target.value)}/>
-            <p>EMAIL:</p>
-            <input placeholder = {props.user.email} onChange = {e => setEmail(e.target.value)} /> 
-            <button onClick = {() => saveChanges(props.user.user_id,userPicture, firstName,lastName, email)} >Save Changes</button>
+                    <div className='background-overlay' onClick={toggleEdit}></div>
+                </div>
+            ) : (
+                null
+            ) }
+            
         </div>
     )
 }

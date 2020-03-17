@@ -1,52 +1,103 @@
 @import './variables';
 @import './media-queries';
 @import './typography';
+@import './buttons';
+@import './inputs';
+
+.auth-container{
+  z-index: -1000;
+  // margin: 130px auto;
+  @include small-phone{
+    width: 325px;
+    margin: 100px auto;
+};
+  @include large-phone{
+    width: 540px;
+    margin: 100px auto;
+};
+  @include portrait-tablet{
+    width: 708px;
+    margin: 140px auto;
+    min-height: calc(100vh - 240px);
+    display: flex;
+  };
+  @include landscape-tablet{
+    width: 872px;
+    min-height: calc(100vh - 260px);
+    margin: 140px auto;
+  };
+  @include desktop{
+    width: 872px;
+    min-height: calc(100vh - 260px);
+    margin: 140px auto;
+};
+}
 
 .login-container{
-    width: 300px;
+  margin: 0 auto;
+  width: 300px;
+  padding: 20px 0 30px 0;
 }
 
 .register-container{
-    width: 300px;
+  margin: 0 auto;
+  width: 300px;
+  padding: 20px 0 30px 0;
+  @include small-phone {
+    border-top: 2px solid $lighter-gray;
+  };
+  @include large-phone{
+    border-top: 2px solid $lighter-gray;
+  };
+  @include portrait-tablet{
+    border-top: 0;
+    border-left: 2px solid $lighter-gray;
+    padding-left: 35px;
+    height: 400px
+  };
+  @include landscape-tablet{
+    padding-left: 90px;
+  };
+  @include desktop{
+  };
+}
+
+.login-register-subheading{
+  margin-bottom: 20px;
 }
 
 input {
-    height: 37px;
-    width: 300px;
-    border: none;
-    margin: 6px 0;
-    outline: none;
-    padding: 0 12px;
-    box-sizing: border-box;
-    transition: 0.3s;
-    background-color:$lighter-gray;
-    border: 1px solid $lighter-gray;
-    color: $input-dark-text;
-    font-size: 13px;
-    font-family: $body-copy;
-  }
-  
-  input::placeholder {
-    color: $input-light-text;
-  }
-  
-  input:focus {
-    border: 1px solid $light-gray;
-  }
-  
-  .inputWithIcon input {
-    padding-left: 35px;
-  }
-  
-  .inputWithIcon {
-    position: relative;
-  }
-  
-  .inputWithIcon #input-icon {
-    position: absolute;
-    left: 0;
-    top: 8px;
-    padding: 9px 8px;
-    color: $input-light-text;
-    transition: 0.3s;
-  }
+  @include input-field;
+  z-index: -1000;
+}
+
+input::placeholder {
+  @include input-placeholder
+}
+
+input:focus {
+  @include input-focus
+}
+
+.inputWithIcon input {
+  padding-left: 35px;
+}
+
+.inputWithIcon {
+  position: relative;
+}
+
+.inputWithIcon #input-icon {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  padding: 9px 12px;
+  color: $input-light-text;
+  transition: 0.3s;
+}
+
+.auth-btn{
+  @include red-button;
+  margin-top: 20px;
+  width: 100%;
+}
