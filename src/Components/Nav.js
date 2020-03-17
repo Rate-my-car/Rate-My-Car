@@ -23,14 +23,14 @@ const Nav = (props) => {
                         <nav className='header-left'>
                             <img src={logo} className='header-logo' alt='Checkup Logo' onClick={() => props.history.push('/')}/>
                             <Link to='/' className='nav-link'>Home</Link>
-                            <Link to='/ForSale' className='nav-link'>Cars for Sale</Link>
+                            <Link to='/ForSale' className='nav-link'>Vehicles for Sale</Link>
                             <Link to='/maps' className='nav-link'>Service Locator</Link>
                         </nav>
                         <nav >
                             {props.user.user_id ? (
                                 <nav className='header-right'>
                                     <Link to='/MyVehicles' className='nav-link'>My Vehicles</Link>
-                                    <div className='profile-container'>
+                                    <div className='profile-container' onClick={() => props.history.push('/profile')}>
                                         <img src={props.user.user_picture} className= 'header-profile-pic' alt='user profile pic'/>
                                         <div id='welcome-user-container' className='nav-link'>
                                             Welcome <br/>
@@ -61,14 +61,15 @@ const Nav = (props) => {
                                 <p id='dropdown-username'>
                                     {props.user.first_name}
                                 </p>
-                                <Link to='/MyVehicles' className='nav-link' id='dropdown-my-vehicles' onClick={showDropdown}>My Vehicles <br/></Link>
+                                <Link to='/profile' className='nav-link' id='dropdown-profile' onClick={showDropdown}>View Profile</Link>
+                                <Link to='/MyVehicles' className='nav-link' id='dropdown-my-vehicles' onClick={showDropdown}>My Vehicles</Link>
                             </nav>
                         ) : (
                             <Link to='/auth' className='nav-link' onClick={showDropdown}>Login/Register</Link>
                         )}
                         <hr id='dropdown-line'/>
                         <Link to='/' className='nav-link' onClick={showDropdown}>Home</Link>
-                        <Link to='/ForSale' className='nav-link' onClick={showDropdown}>Cars for Sale</Link>
+                        <Link to='/ForSale' className='nav-link' onClick={showDropdown}>Vehicles for Sale</Link>
                         <Link to='/maps' className='nav-link' onClick={showDropdown}>Service Locator</Link>
                     </div>
                 </div>

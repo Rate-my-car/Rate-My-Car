@@ -48,7 +48,7 @@ const Auth = (props) => {
       <div className='auth-container'>
         <div className='login-container'>
           <h1>Login</h1>
-          <p className='login-register-subheading'>to your account</p>
+          <h4 className='login-register-subheading'>to your account</h4>
           <div className="inputWithIcon">
               <input
                 name="logUsername"
@@ -68,13 +68,13 @@ const Auth = (props) => {
               />
               <FontAwesomeIcon id='input-icon' icon={faLock}/>
           </div>
-          <button onClick = {login}>Login</button>
+          <button className='auth-btn' onClick = {login}>Login</button>
         </div>
 
 
         <div className='register-container'>
           <h1>Register</h1>
-            <p className='login-register-subheading'>a new account</p>
+            <h4 className='login-register-subheading'>a new account</h4>
             <div className="inputWithIcon">
                 <input
                   name="regUsername"
@@ -121,7 +121,7 @@ const Auth = (props) => {
               />
               <FontAwesomeIcon id='input-icon' icon={faLock}/>
           </div>
-          <button onClick = {() => register()}>Register</button>
+          <button className='auth-btn' onClick={() => register()}>Register</button>
         </div>
           {/* <div> 
           <div>

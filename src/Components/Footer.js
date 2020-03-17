@@ -10,7 +10,7 @@ const Footer = () => {
                 <img src={footerLogo} className='footer-logo' alt='Checkup Logo'/>
                 <nav className='footer-right'>
                     <Link to='/' className='footer-nav-link'>Home</Link>
-                    <Link to='/ForSale' className='footer-nav-link'>Cars for Sale</Link>
+                    <Link to='/ForSale' className='footer-nav-link'>Vehicles for Sale</Link>
                     <Link to='/maps' className='footer-nav-link'>Service Locator</Link>
                 </nav>
             </footer>

@@ -3,11 +3,14 @@
 @import './typography';
 
 .header-container{
+    position: fixed;
+    top: 0;
     width: 100%;
     background-color: $darkest-gray;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 100;
     @include small-phone{
         height: 75px;
     };
@@ -96,7 +99,7 @@ header{
     width: 100%;
     height: auto;
     background-color: $input-dark-text;
-    z-index: 200px;
+    z-index: 1000;
     position: fixed;
     top: 74px;
     @include small-phone{
@@ -170,13 +173,14 @@ header{
 }
 
 #dropdown-user-info{
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 #dropdown-line{
-    // margin-left: 0px;
     margin: 20px 0px;
 }
+
 
 .desktop-nav{
     @include small-phone{
