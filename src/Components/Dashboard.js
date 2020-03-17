@@ -35,6 +35,7 @@ const Dashboard = (props) => {
                 </div>
             </div>
             <div>
+                
                 Featured Vehicles
                 {carsForSale.map(cars => {
                     return(

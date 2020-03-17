@@ -8,6 +8,7 @@ import ForSale from './Components/ForSale'
 import Dashboard from './Components/Dashboard'
 import Profile from './Components/Profile';
 import InvVehicle from './Components/InvVehicle'
+import PostForSale from './Components/PostForSale'
 
 
 export default (
@@ -20,5 +21,6 @@ export default (
         <Route path = '/maps' component = {Maps}/>
         <Route exact path = '/' component = {Dashboard} />
         <Route path = '/profile' component = {Profile} />
+        <Route path = '/postforsale' component = {PostForSale}/>
     </Switch>
 )
