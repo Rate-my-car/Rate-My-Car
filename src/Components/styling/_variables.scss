@@ -2,6 +2,7 @@
 $red: #E82828;
 $text-navy: #2C3643;
 $darkest-gray: #1F2124;
+$hero-gray: rgba(31, 33, 36, 0.705);
 
 $light-gray: #A5AEB4;
 $lighter-gray: #D6DADD;
@@ -14,3 +15,12 @@ $input-light-text: #67747C;
 // Fonts
 $display-font: 'Poppins', sans-serif;
 $body-copy: 'Open Sans', sans-serif;
+
+
+
+@mixin red-line{
+    width: 176px;
+    height: 3px;
+    border: none;
+    background-color: $red;
+}

@@ -1,0 +1,52 @@
+@import './variables';
+@import './media-queries';
+@import './typography';
+
+.login-container{
+    width: 300px;
+}
+
+.register-container{
+    width: 300px;
+}
+
+input {
+    height: 37px;
+    width: 300px;
+    border: none;
+    margin: 6px 0;
+    outline: none;
+    padding: 0 12px;
+    box-sizing: border-box;
+    transition: 0.3s;
+    background-color:$lighter-gray;
+    border: 1px solid $lighter-gray;
+    color: $input-dark-text;
+    font-size: 13px;
+    font-family: $body-copy;
+  }
+  
+  input::placeholder {
+    color: $input-light-text;
+  }
+  
+  input:focus {
+    border: 1px solid $light-gray;
+  }
+  
+  .inputWithIcon input {
+    padding-left: 35px;
+  }
+  
+  .inputWithIcon {
+    position: relative;
+  }
+  
+  .inputWithIcon #input-icon {
+    position: absolute;
+    left: 0;
+    top: 8px;
+    padding: 9px 8px;
+    color: $input-light-text;
+    transition: 0.3s;
+  }

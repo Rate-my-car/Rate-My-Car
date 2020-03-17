@@ -1,0 +1,114 @@
+@import './variables';
+@import './media-queries';
+@import './typography';
+
+.dashboard-container{
+    @include small-phone{
+        min-height: calc(100vh - 155px);
+    };
+    @include large-phone{
+    };
+    @include portrait-tablet{
+    };
+    @include landscape-tablet{
+    };
+    @include desktop{
+    };
+}
+
+.hero-container{
+    margin-top: -1px;
+    width: 100%;
+    background-image: url('hero-image.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include small-phone{
+        height: 330px
+    };
+    @include large-phone{
+        height: 330px
+    };
+    @include portrait-tablet{
+        height: 330px
+    };
+    @include landscape-tablet{
+        height: 330px
+    };
+    @include desktop{
+        height: 450px
+    };
+}
+
+.hero {
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    @include small-phone{
+        width: 325px;
+    };
+    @include large-phone{
+        width: 540px;
+    };
+    @include portrait-tablet{
+        width: 708px;
+    };
+    @include landscape-tablet{
+        width: 872px;
+    };
+    @include desktop{
+        width: 1140px;
+    };
+}
+
+.hero-content{
+    background-color: $hero-gray;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    @include small-phone{
+        width: 325px;
+    };
+    @include large-phone{
+        width: 540px;
+    };
+    @include portrait-tablet{
+        width: 575px;
+    };
+    @include landscape-tablet{
+        width: 575px;
+    };
+    @include desktop{
+        width: 575px;
+    };
+}
+
+#hero-heading-text{
+    color:white;
+    text-align: left;
+    margin-left: 28px;
+}
+
+#hero-line{
+    margin-left: 28px;
+    margin: -10px 0 0 28px;
+}
+
+#hero-body-copy{
+    @include body-copy;
+    font-size: 14px;
+    color: white;
+    margin-left: 28px;
+    padding-bottom: 10px;
+    @include small-phone{
+        width: 267px;
+    };
+    @include large-phone{
+        width: 480px;
+    };
+}
+
+
