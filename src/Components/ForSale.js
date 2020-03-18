@@ -6,18 +6,18 @@ const ForSale = (props) => {
     const [inputs, handleInputs] = useState({search: ''})
     const [carsForSale] = useAxios('/api/forsale')
     console.log(carsForSale)
-    // const [searchTerm, setSearchTerm] = useState('')
-    // const [searchResults, setSearchResults] = useState([])
-    // const handleChange = e => {
-    //     setSearchTerm(e.target.value)
-    // }
+    const [searchTerm, setSearchTerm] = useState('')
+    const [searchResults, setSearchResults] = useState([])
+    const handleChange = e => {
+        setSearchTerm(e.target.value)
+    }
 
-    // useEffect(() => {
-    //     const results = carsForSale.filter(vehicle =>
-    //         vehicle.toLowerCase().includes(searchTerm)
-    //     )
-    //     setSearchResults(results);
-    // }, [searchTerm]);
+    useEffect(() => {
+        const results = carsForSale.filter(vehicle =>
+            vehicle.toLowerCase().includes(searchTerm)
+        )
+        setSearchResults(results);
+    }, [searchTerm]);
 
    
 
