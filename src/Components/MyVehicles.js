@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios'
 import {withRouter} from 'react-router-dom'
 import {connect} from "react-redux"
+import './styling/MyVehicles.scss'
+import Form from './Form'
 
 
 const MyVehicles = (props) => {
@@ -12,7 +14,7 @@ const MyVehicles = (props) => {
         })
     }, [])
     
-    const [inputs, handleInputs] = useState({myCars: [], description: '', milage: '', price:'', location: '', sold: '', car_id: 0})
+    const [inputs, handleInputs] = useState({myCars: [], description: '', milage: '', price:'', location: '', sold: '', car_id: 0, posting: false})
     const postCar = () => {
         const {description, milage, price, location, sold} = inputs
         const {user_id} = props.user
@@ -32,23 +34,36 @@ const MyVehicles = (props) => {
     
     console.log(props.match.params.id)
     console.log(props.user)
+    console.log(inputs.posting)
 
+    const changePosting = () => {
+        handleInputs({...inputs, posting: !inputs.posting})
+    }
+    
+    console.log(props.user.reducer.user.user_id)
     return(
 
-        <div>
-            {/* {!mappedUserCars[0] ? (
-                <h1>Please Login</h1>
-            ):( */}
+        <div className='my-vehicles-container'>
+            
+                <div>
+                    {props.user.reducer.user.user_id ? (
+                        <div>
+                            <h1>Please add a car</h1>
+                        </div>
+                    ):(
+                        <h1>Please Login</h1>
+                    )}
+                </div>
+            
                 <div>
                     {mappedUserCars}
-                <input placeholder='Description' onChange={(e)=>handleInputs({...inputs, description: e.target.value})} />
-            <input placeholder='Milage' onChange={(e)=>handleInputs({...inputs, milage: e.target.value})} />
-            <input placeholder='Price' type='number' onChange={(e)=>handleInputs({...inputs, price: e.target.value})} />
-            <input placeholder='Location' onChange={(e)=>handleInputs({...inputs, location: e.target.value})} />
-            <input placeholder='Sold' onChange={(e)=>handleInputs({...inputs, sold: e.target.value})} />
-            <button onClick={postCar}>Add Car For Sale</button>
+                    {inputs.posting ? (
+                        {Form}
+                    ):(    
+                        <button onClick={changePosting}>Add Car</button>
+                    )}
                 </div>
-                {/* )} */}
+            
         </div>
     )
 }

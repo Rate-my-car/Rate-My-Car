@@ -1,0 +1,26 @@
+@import './media-queries';
+
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin-bottom: 40px;
+    @include small-phone {
+      margin: 100px auto 40px auto;
+      width: 325px;
+    }
+    @include large-phone {
+      margin-top: 100px;
+    }
+    @include portrait-tablet {
+      margin-top: 140px;
+      min-height: calc(100vh - 260px);
+    }
+    @include landscape-tablet {
+      margin-top: 140px;
+    }
+    @include desktop {
+      margin-top: 140px;
+    }
+  }

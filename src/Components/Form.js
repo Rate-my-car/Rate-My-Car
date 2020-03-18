@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios'
 import { withRouter } from 'react-router-dom';
+import './styling/Form.scss'
 
 
 
@@ -14,7 +15,7 @@ const Form = (props) => {
         })
     }
     return(
-        <div>
+        <div className='form-container'>
             <input placeholder='Make' onChange={(e)=>handleInputs({...inputs, make: e.target.value})} />
             <input placeholder='Model' onChange={(e)=>handleInputs({...inputs, model: e.target.value})} />
             <input placeholder='Year' type='number' onChange={(e)=>handleInputs({...inputs, year: e.target.value})} />

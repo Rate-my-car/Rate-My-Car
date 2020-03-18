@@ -20,10 +20,10 @@
   }
   @include landscape-tablet {
     margin-top: 100px;
-}
+  }
   @include desktop {
     margin-top: 100px;
-}
+  }
 }
 
 .profile-primary-info {
@@ -284,9 +284,50 @@
   backdrop-filter: blur(2px);
 }
 
-.logout-btn{
-    @include gray-button;
+.logout-btn-container {
+  margin: 0 auto;
+  display: flex;
+  @include small-phone {
+    width: 325px;
+    // justify-content: flex-start;
+    // align-items: flex-start;
+  }
+  @include large-phone {
+    width: 540px;
+  }
+  @include portrait-tablet {
+    width: auto;
+    max-width: 708px;
+  }
+  @include landscape-tablet {
+    width: auto;
+    max-width: 872px;
+  }
+  @include desktop {
+    width: auto;
+    max-width: 1140px;
+  }
+}
+
+.logout-btn {
+  @include gray-button;
+  @include small-phone {
+    margin: 25px 0;
+    // width: 91px;
+  }
+  @include large-phone {
+    margin: 25px 0;
+    width: 91px;
+  }
+  @include portrait-tablet {
     margin: 25px auto;
+  }
+  @include landscape-tablet {
+    margin: 25px auto;
+  }
+  @include desktop {
+    margin: 25px auto;
+  }
 }
 
 // @include small-phone{

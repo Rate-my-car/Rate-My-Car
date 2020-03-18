@@ -5,6 +5,7 @@ import Dropzone from 'react-dropzone';
 import axios from 'axios'; 
 import swal from 'sweetalert2'; 
 import {getUser} from '../Duxx/reducer'
+import Swal from 'sweetalert2'
 import './styling/Profile.scss'
 
 const Profile = (props) => {
@@ -19,7 +20,7 @@ const [edit, setEdit] = useState(false)
 const toggleEdit  = () => {
     setEdit(!edit)
 }
-console.log(props.user)
+
 const logout = () => {
     axios.post('/auth/logout')
     .then(props.getUser({}))
@@ -74,6 +75,21 @@ const uploadFile = (file,signedRequest,url)  => {
     })
 }
 
+
+
+
+useEffect(() => {
+    rerender();
+}, [getUser])
+
+
+const rerender = () => {
+    // axios.get(`/api/cart/${props.user.customer_order_id}`)
+    // .then(res => props.setCart(res.data))
+    // .catch(err => console.log(err))
+}
+
+
 const saveChanges = (user_id,userPicture, firstName, lastName, email) => { 
     
     if(!userPicture){userPicture = props.user.user_picture;}
@@ -81,6 +97,22 @@ const saveChanges = (user_id,userPicture, firstName, lastName, email) => {
     if(!lastName){lastName = props.user.last_name;}
     if(!email){email = props.user.email;}
     axios.post('/auth/profile', {user_id,userPicture,firstName,lastName,email}).then(res => getUser(res.data))
+    .then(() => {
+        Swal.fire({
+            title: 'Update Successful',
+            text: 'Please log back in to view changes.',
+            icon: 'success',
+            confirmButtonText: 'OK'
+          })
+    })
+    .then(() => {
+        setEdit(false)
+    })
+    .then(() => {
+        axios.post('/auth/logout')
+        .then(props.getUser({}))
+        .then(props.history.push('/'))
+    })
 }
 
 
@@ -116,7 +148,9 @@ const saveChanges = (user_id,userPicture, firstName, lastName, email) => {
                 </div>
                 <button className='profile-edit-button' onClick={toggleEdit}>Edit</button>
             </div>
-            <button className='logout-btn' onClick={logout}>Logout</button>
+            <div className='logout-btn-container'>
+                <button className='logout-btn' onClick={logout}>Logout</button>
+            </div>
             
 
 
