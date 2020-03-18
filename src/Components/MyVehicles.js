@@ -3,6 +3,7 @@ import axios from 'axios'
 import {withRouter} from 'react-router-dom'
 import {connect} from "react-redux"
 import './styling/MyVehicles.scss'
+import Form from './Form'
 
 
 const MyVehicles = (props) => {
@@ -57,14 +58,7 @@ const MyVehicles = (props) => {
                 <div>
                     {mappedUserCars}
                     {inputs.posting ? (
-                        <div>
-                            <input placeholder='Description' onChange={(e)=>handleInputs({...inputs, description: e.target.value})} />
-                            <input placeholder='Milage' onChange={(e)=>handleInputs({...inputs, milage: e.target.value})} />
-                            <input placeholder='Price' type='number' onChange={(e)=>handleInputs({...inputs, price: e.target.value})} />
-                            <input placeholder='Location' onChange={(e)=>handleInputs({...inputs, location: e.target.value})} />
-                            <input placeholder='Sold' onChange={(e)=>handleInputs({...inputs, sold: e.target.value})} />
-                            <button onClick={postCar}>Add Car For Sale</button>
-                        </div>
+                        {Form}
                     ):(    
                         <button onClick={changePosting}>Add Car</button>
                     )}
