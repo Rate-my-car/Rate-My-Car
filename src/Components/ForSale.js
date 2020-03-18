@@ -33,7 +33,7 @@ const ForSale = (props) => {
                 // onChange = {handleChange}
                 />
                 
-                //  {/* <ul>
+                  {/* <ul>
                     //  {searchResults.map(item => (
                     //      <li>{item}</li>
                     //  ))}

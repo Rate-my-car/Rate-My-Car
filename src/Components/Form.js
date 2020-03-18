@@ -91,6 +91,7 @@ const Form = (props) => {
                             )}
                         </Dropzone>
                         )}
+    
             <button onClick={postCar}>Add Car</button>
         </div>
     )
