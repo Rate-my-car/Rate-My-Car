@@ -40,14 +40,12 @@ const MyVehicles = (props) => {
             
                 <div>
                     {props.user.reducer.user.user_id ? (
-                        <div>
-                            <h1>Please add a car</h1>
-                        </div>
+                        <button onClick={changePosting}>Add a car</button>
                     ):(
                         <h1>Please Login</h1>
                     )}
                 </div>
-                <button onClick={changePosting}>Add Car</button>
+                {mappedUserCars}
         </div>
     )
 }

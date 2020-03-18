@@ -10,7 +10,7 @@ const Dashboard = (props) => {
     useEffect(() => {
         axios.get('/api/forsale').then(res => {
             let list = []
-            for(let i = 0; i < 3; i++){
+            for(let i = 0; i < 4; i++){
                 list.push(res.data[Math.ceil(Math.random()* list.length)])
             }
             setFeaturedCars(list)
@@ -47,12 +47,17 @@ const Dashboard = (props) => {
                     </div>
                 </div>
             </div>
-            <div>
+            <h2>Featured Vehicles</h2>
+
+            <div className='featured-vehicles-container'>
                 
-                Featured Vehicles
                 {featuredCars.map(cars => {
                     return(
-                        <div>
+                        <div className='featured-vehicle-container'>
+                            <img className='featured-vehicle-img'/>
+                            <h3 className='featured-vehicle-title'>Year Make Model Model</h3>
+                            <p className='featured-vehicle-mileage'>Mileage: 120,000</p>
+                            <h4 className='featured-vehicle-price'>Price: $35,000</h4>
                            
                             {/* YEAR:<div>{cars.year}</div>
                             MAKE:<div>{cars.make}</div>
@@ -62,7 +67,7 @@ const Dashboard = (props) => {
                             PRICE:<div>{cars.price}</div> */}
                             
                             {/* OWNERINFO */}
-                            <button> Details </button>
+                            {/* <button> Details </button> */}
                         </div>
                     )
                 })}
