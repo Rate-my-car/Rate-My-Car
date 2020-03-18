@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios'
 import Services from './Services'
 import ServiceForm from './ServiceForm'
-
+import './styling/InvVehicle.scss';
 
 
 const InvVehicle = (props) => {
@@ -25,7 +25,7 @@ const InvVehicle = (props) => {
         changeRender({...rendering, bool: !rendering.bool})
     }
     return(
-        <div>
+        <div className='inv-vehicle-container'>
             <span>{mounting.make}</span>
             <span>{mounting.model}</span>
             <span>{mounting.year}</span>

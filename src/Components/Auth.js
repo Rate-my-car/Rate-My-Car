@@ -1,10 +1,10 @@
-import React, { useState } from "react"
+import React, {useState} from "react"
 import axios from "axios"
 import {withRouter} from 'react-router-dom'
 import {getUser} from '../Duxx/reducer'
 import {connect} from 'react-redux'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLock, faUser as faUserSolid} from '@fortawesome/free-solid-svg-icons'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faLock, faUser as faUserSolid} from '@fortawesome/free-solid-svg-icons'
 import {faEnvelope, faUser as faUserRegular} from '@fortawesome/free-regular-svg-icons'
 import './styling/Auth.scss'
 
