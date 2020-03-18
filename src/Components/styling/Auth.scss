@@ -68,7 +68,7 @@
 
 input {
   @include input-field;
-  z-index: -1000;
+  // z-index: -1000;
 }
 
 input::placeholder {
