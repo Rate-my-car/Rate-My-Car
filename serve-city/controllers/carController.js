@@ -11,7 +11,7 @@ module.exports = {
     async getMyCars(req, res){
         const db = req.app.get('db')
         const {user_id} = req.session.user
-        let myCars = await db.cars.get_my_car(user_id)
+        let myCars = await db.cars.get_my_cars(user_id)
         res.status(200).send(myCars)
     },
     async addMaintenance(req, res){
