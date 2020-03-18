@@ -36,6 +36,7 @@ const InvVehicle = (props) => {
             ):(
                 <ServiceForm clicker={clicker} id={props.match.params.id} />
             )}
+            <button onClick= {() => this.props.history.push(`/postforsale`)}> SELL VEHICLE </button>
         </div>
     )
 }

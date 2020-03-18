@@ -1,38 +1,40 @@
+@import './Components/styling/variables';
+@import './Components/styling/typography';
+
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+hr{
+  @include red-line;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1{
+  @include heading-1;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h2{
+  @include heading-2;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+h3{
+  @include heading-3;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
-.App-link {
-  color: #61dafb;
+h4{
+  @include heading-4;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h5{
+  @include heading-5;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }

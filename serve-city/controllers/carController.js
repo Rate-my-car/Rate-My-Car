@@ -31,10 +31,13 @@ module.exports = {
 
     async getForSale(req, res) {
         const db = req.app.get('db')
+        const {make, model, year, owner, milage, price} = req.body
 
-        db.cars.get_for_sale()
+        db.cars.get_for_sale(make, model, year, owner, milage, price)
         .then((results) => res.status(200).send(results))
     },
+
+
     
     async getCar(req,res){
         const db = req.app.get('db')

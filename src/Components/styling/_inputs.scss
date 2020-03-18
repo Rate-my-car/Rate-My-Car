@@ -1,0 +1,26 @@
+@mixin input-field {
+  height: 37px;
+  width: 300px;
+  border: none;
+  margin: 6px 0;
+  outline: none;
+  padding: 0 12px;
+  box-sizing: border-box;
+  transition: 0.3s;
+  background-color: $lighter-gray;
+  border: 1px solid $lighter-gray;
+  color: $input-dark-text;
+  font-size: 13px;
+  font-family: $body-copy;
+  font-weight: 600;
+  z-index: 0;
+}
+
+@mixin input-placeholder {
+  color: $input-light-text;
+  font-weight: 400;
+}
+
+@mixin input-focus {
+  border: 1px solid $light-gray;
+}

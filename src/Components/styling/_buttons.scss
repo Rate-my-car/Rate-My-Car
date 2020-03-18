@@ -6,12 +6,17 @@
     letter-spacing: 0.96px;
     color: #FFFFFF;
     padding: 12px 22px;
+    height: 46px;
     background-color: $red;
+    border: 0;
+    &:hover {
+        background-color: #ED7272;
+    }
+    &:active {
+        background-color: #ED7272;
+    }
 }
 
-@mixin red-button-click{
-    background-color: #ED7272;
-}
 
 @mixin gray-button{
     text-align: center;
@@ -20,11 +25,16 @@
     letter-spacing: 0.96px;
     color: #FFFFFF;
     padding: 12px 22px;
+    height: 46px;
     background-color: $light-gray;
+    border: 0;
+    &:hover {
+        background-color: $lighter-gray;
+    }
+    &:active {
+        background-color: $lighter-gray;
+    }
 }
 
-@mixin gray-button-click{
-    background-color: $lighter-gray;
-}
 
 
