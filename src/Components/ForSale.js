@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import useAxios from '../hooks/useAxios'
 import ReactDOM from 'react-dom'
+import './styling/ForSale.scss'
 
 const ForSale = (props) => {
     const [inputs, handleInputs] = useState({search: ''})
@@ -23,7 +24,7 @@ const ForSale = (props) => {
 
 
     return(
-        <div>
+        <div className='for-sale-container'>
             <div>
                 <input 
                 type = 'text'

@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios'
 import {withRouter} from 'react-router-dom'
 import {connect} from "react-redux"
+import './styling/MyVehicles.scss'
 
 
 const MyVehicles = (props) => {
@@ -32,13 +33,15 @@ const MyVehicles = (props) => {
     
     console.log(props.match.params.id)
     console.log(props.user)
+
     const changePosting = () => {
         handleInputs({...inputs, posting: !inputs.posting})
     }
+    
     console.log(props.user.reducer.user.user_id)
     return(
 
-        <div>
+        <div className='my-vehicles-container'>
             {!mappedUserCars[0] ? (
                 <div>
                     {props.user.reducer.user.user_id ? (
