@@ -1,10 +1,13 @@
 import React from 'react';
+import MapContainer from './MapContainer'
 
 
 const Maps = () => {
 
     return(
-        <div></div>
+        <div>
+            <MapContainer />
+        </div>
     )
 }
 export default Maps
