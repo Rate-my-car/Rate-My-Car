@@ -33,12 +33,11 @@ const ForSale = (props) => {
                 onChange = {handleChange}
                 />
                 
-                <ul>
-                      {searchResults.map(item => (
-                         <li>{item}</li>
-                     ))}
-                 </ul>
-                <button>SEARCH</button>
+                  {/* <ul>
+                    //  {searchResults.map(item => (
+                    //      <li>{item}</li>
+                    //  ))}
+                //  </ul> */}
                 {carsForSale.map(carsForSale => {
                     return(
                         <div>
