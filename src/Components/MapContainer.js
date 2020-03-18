@@ -99,6 +99,18 @@ useEffect(() => {
         </InfoWindow>
 
         </Map>
+        {locations? locations.map((element,index) => 
+        <div> 
+        <p>Marker: {index + 1} </p>
+        <h3>{element.name}</h3>
+        <p>Address:</p>
+        <p>{element.formatted_address}</p>
+        <p>Rating:</p>
+        <p>{element.rating}</p>
+
+        </div>
+       ): console.log('no locations')}
+
 
         </div>
     )
