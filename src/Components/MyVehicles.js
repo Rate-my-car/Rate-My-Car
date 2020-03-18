@@ -12,7 +12,7 @@ const MyVehicles = (props) => {
         })
     }, [])
     
-    const [inputs, handleInputs] = useState({myCars: [], description: '', milage: '', price:'', location: '', sold: '', car_id: 0})
+    const [inputs, handleInputs] = useState({myCars: [], description: '', milage: '', price:'', location: '', sold: '', car_id: 0, posting: false})
     const postCar = () => {
         const {description, milage, price, location, sold} = inputs
         const {user_id} = props.user
@@ -32,23 +32,42 @@ const MyVehicles = (props) => {
     
     console.log(props.match.params.id)
     console.log(props.user)
-
+    const changePosting = () => {
+        handleInputs({...inputs, posting: !inputs.posting})
+    }
+    console.log(props.user.reducer.user.user_id)
     return(
 
         <div>
-            {/* {!mappedUserCars[0] ? (
-                <h1>Please Login</h1>
-            ):( */}
+            {!mappedUserCars[0] ? (
+                <div>
+                    {props.user.reducer.user.user_id ? (
+                        <div>
+                            <h1>Please add a car</h1>
+                            <button onClick={changePosting}>Add Car</button>
+                        </div>
+                    ):(
+                        <h1>Please Login</h1>
+                    )}
+                </div>
+            ):(
                 <div>
                     {mappedUserCars}
-                <input placeholder='Description' onChange={(e)=>handleInputs({...inputs, description: e.target.value})} />
-            <input placeholder='Milage' onChange={(e)=>handleInputs({...inputs, milage: e.target.value})} />
-            <input placeholder='Price' type='number' onChange={(e)=>handleInputs({...inputs, price: e.target.value})} />
-            <input placeholder='Location' onChange={(e)=>handleInputs({...inputs, location: e.target.value})} />
-            <input placeholder='Sold' onChange={(e)=>handleInputs({...inputs, sold: e.target.value})} />
-            <button onClick={postCar}>Add Car For Sale</button>
+                    <button onClick={changePosting}>Add Car</button>
+                    {inputs.posting ? (
+                        <div>
+                            <input placeholder='Description' onChange={(e)=>handleInputs({...inputs, description: e.target.value})} />
+                            <input placeholder='Milage' onChange={(e)=>handleInputs({...inputs, milage: e.target.value})} />
+                            <input placeholder='Price' type='number' onChange={(e)=>handleInputs({...inputs, price: e.target.value})} />
+                            <input placeholder='Location' onChange={(e)=>handleInputs({...inputs, location: e.target.value})} />
+                            <input placeholder='Sold' onChange={(e)=>handleInputs({...inputs, sold: e.target.value})} />
+                            <button onClick={postCar}>Add Car For Sale</button>
+                        </div>
+                    ):(
+                        <div></div>
+                    )}
                 </div>
-                {/* )} */}
+            )}
         </div>
     )
 }
