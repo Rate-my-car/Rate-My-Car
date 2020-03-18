@@ -1,0 +1,20 @@
+@import "./variables";
+@import "./media-queries";
+
+.service-locator-container {
+  @include small-phone {
+    margin-top: 75px;
+  }
+  @include large-phone {
+    margin-top: 75px;
+  }
+  @include portrait-tablet {
+    margin-top: 100px;
+  }
+  @include landscape-tablet {
+    margin-top: 100px;
+  }
+  @include desktop {
+    margin-top: 140px;
+  }
+}

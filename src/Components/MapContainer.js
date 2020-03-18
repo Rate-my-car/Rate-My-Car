@@ -1,6 +1,8 @@
 import React,{useState, useEffect} from 'react'
 import axios from 'axios'; 
 import {GoogleApiWrapper, Map, InfoWindow, Marker} from 'google-maps-react'; 
+import './styling/Maps.scss'
+
 
 const MapContainer = (props) => { 
     const [style, setStyle] = useState({width: '50vw' , height: '100vh'})
