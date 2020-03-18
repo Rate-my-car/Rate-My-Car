@@ -15,13 +15,6 @@ const MyVehicles = (props) => {
     }, [])
     
     const [inputs, handleInputs] = useState({myCars: [], description: '', milage: '', price:'', location: '', sold: '', car_id: 0, posting: false})
-    const postCar = () => {
-        const {description, milage, price, location, sold} = inputs
-        const {user_id} = props.user
-        axios.post('/api/sale', {user_id, description, milage, price, location, sold}).then(()=> {
-            props.history.push('/')
-        })
-    }
     let mappedUserCars = inputs.myCars.map((el)=> {
         return(
             <div onClick={()=> props.history.push(`/vehicles/${el.car_id}`)}>
@@ -37,7 +30,7 @@ const MyVehicles = (props) => {
     console.log(inputs.posting)
 
     const changePosting = () => {
-        handleInputs({...inputs, posting: !inputs.posting})
+        props.history.push('/form')
     }
     
     console.log(props.user.reducer.user.user_id)
@@ -54,16 +47,7 @@ const MyVehicles = (props) => {
                         <h1>Please Login</h1>
                     )}
                 </div>
-            
-                <div>
-                    {mappedUserCars}
-                    {inputs.posting ? (
-                        <Form />
-                    ):(    
-                        <button onClick={changePosting}>Add Car</button>
-                    )}
-                </div>
-            
+                <button onClick={changePosting}>Add Car</button>
         </div>
     )
 }
