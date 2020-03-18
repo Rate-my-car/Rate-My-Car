@@ -17,19 +17,19 @@
 };
   @include portrait-tablet{
     width: 708px;
-    margin: 140px auto;
-    min-height: calc(100vh - 240px);
+    min-height: calc(100vh - 220px);
+    margin: 140px auto 0 auto;
     display: flex;
   };
   @include landscape-tablet{
     width: 872px;
-    min-height: calc(100vh - 260px);
-    margin: 140px auto;
+    min-height: calc(100vh - 220px);
+    margin: 140px auto 0 auto;
   };
   @include desktop{
     width: 872px;
-    min-height: calc(100vh - 260px);
-    margin: 140px auto;
+    min-height: calc(100vh - 220px);
+    margin: 140px auto 0 auto;
 };
 }
 

@@ -18,6 +18,7 @@
 @mixin heading-3{
     font-family: $display-font;
     font-size: 18px;
+    line-height: 19px;
     font-weight: 700;
     text-transform: uppercase;
     color: $text-navy;
