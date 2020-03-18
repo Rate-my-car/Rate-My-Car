@@ -33,6 +33,7 @@ const MyVehicles = (props) => {
     
     console.log(props.match.params.id)
     console.log(props.user)
+    console.log(inputs.posting)
 
     const changePosting = () => {
         handleInputs({...inputs, posting: !inputs.posting})
@@ -42,21 +43,19 @@ const MyVehicles = (props) => {
     return(
 
         <div className='my-vehicles-container'>
-            {!mappedUserCars[0] ? (
+            
                 <div>
                     {props.user.reducer.user.user_id ? (
                         <div>
                             <h1>Please add a car</h1>
-                            <button onClick={changePosting}>Add Car</button>
                         </div>
                     ):(
                         <h1>Please Login</h1>
                     )}
                 </div>
-            ):(
+            
                 <div>
                     {mappedUserCars}
-                    <button onClick={changePosting}>Add Car</button>
                     {inputs.posting ? (
                         <div>
                             <input placeholder='Description' onChange={(e)=>handleInputs({...inputs, description: e.target.value})} />
@@ -66,11 +65,11 @@ const MyVehicles = (props) => {
                             <input placeholder='Sold' onChange={(e)=>handleInputs({...inputs, sold: e.target.value})} />
                             <button onClick={postCar}>Add Car For Sale</button>
                         </div>
-                    ):(
-                        <div></div>
+                    ):(    
+                        <button onClick={changePosting}>Add Car</button>
                     )}
                 </div>
-            )}
+            
         </div>
     )
 }
