@@ -29,15 +29,16 @@ const ForSale = (props) => {
                 <input 
                 type = 'text'
                 placeholder= 'SEARCH VEHICLES' 
-                // value= {searchTerm}
-                // onChange = {handleChange}
+                value= {searchTerm}
+                onChange = {handleChange}
                 />
                 
-                //  {/* <ul>
-                    //  {searchResults.map(item => (
-                    //      <li>{item}</li>
-                    //  ))}
-                //  </ul> */}
+                <ul>
+                      {searchResults.map(item => (
+                         <li>{item}</li>
+                     ))}
+                 </ul>
+                <button>SEARCH</button>
                 {carsForSale.map(carsForSale => {
                     return(
                         <div>
