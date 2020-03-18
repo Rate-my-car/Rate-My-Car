@@ -1,20 +1,80 @@
 @import "./variables";
 @import "./media-queries";
+@import "./buttons";
 
 .service-locator-container {
   @include small-phone {
-    margin-top: 75px;
+    margin: 110px auto 30px auto;
+    width: 325px;
   }
   @include large-phone {
-    margin-top: 75px;
+    margin: 110px auto 30px auto;
+    width: 540px;
   }
   @include portrait-tablet {
-    margin-top: 100px;
+    margin: 140px auto 30px auto;
+    width: 708px;
   }
   @include landscape-tablet {
-    margin-top: 100px;
+    margin: 140px auto 30px auto;
+    width: 872px;
   }
   @include desktop {
-    margin-top: 140px;
+    margin: 140px auto 30px auto;
+    width: 1140px;
+  }
+}
+
+.map-container{
+  margin: 0 auto;
+  height: auto;
+  // overflow: hidden;
+  position: relative;
+  @include small-phone {
+    width: 325px;
+  }
+  @include large-phone {
+    width: 540px;
+  }
+  @include portrait-tablet {
+    width: 708px;
+  }
+  @include landscape-tablet {
+    width: 872px;
+  }
+  @include desktop {
+    width: 1140px;
+  }
+}
+
+.search-area-text {
+  margin-top: 20px;
+}
+
+.zipcode-input {
+  margin-bottom: 10px;
+}
+
+.map-search-btn {
+  @include red-button;
+  margin-bottom: 30px;
+}
+
+.google-map {
+  margin: 0 auto;
+  @include small-phone {
+    width: 325px;
+  }
+  @include large-phone {
+    width: 540px;
+  }
+  @include portrait-tablet {
+    width: 708px;
+  }
+  @include landscape-tablet {
+    width: 872px;
+  }
+  @include desktop {
+    width: 1140px;
   }
 }

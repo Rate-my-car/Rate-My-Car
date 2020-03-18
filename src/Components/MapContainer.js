@@ -5,7 +5,7 @@ import './styling/Maps.scss'
 
 
 const MapContainer = (props) => { 
-    const [style, setStyle] = useState({width: '50vw' , height: '100vh'})
+    const [style, setStyle] = useState({width: '95%' , height: '60vh', overflow: "hidden"})
     const [zipCode, setZipCode] = useState(0)
     const [showInfoWindow, toggleInfoWindow] = useState(false)
     const[activeMarker, setActiveMarker] = useState({})
@@ -60,45 +60,46 @@ useEffect(() => {
 
     return( 
         
-        <div> 
-            <p>Search in area:</p>
-            <input placeholder = 'Enter Zip Code' onChange = { e => setZipCode(e.target.value)} />
-            <button onClick = {() => searchLocations(zipCode)}>Search</button>
+        <div className='map-container'> 
+            <h4 className='search-area-text'>Search in area:</h4>
+            <input className='zipcode-input' placeholder = 'Enter Zip Code' onChange = { e => setZipCode(e.target.value)} />
+            <button className='map-search-btn' onClick = {() => searchLocations(zipCode)}>Search</button>
+            <div className='google-map'>
+                <Map 
+                    google={props.google}
+                    onClick={onMapClicked}
+                    center = {center}
+                    style = {style}
+                    zoom = {12}>
+                
+                {locations? locations.map((element,index) => 
+                
+                    <Marker 
+                        onClick={onMarkerClick}
+                        position = {element.geometry.location}
+                        label = {(index + 1).toString()}
+                    />): console.log('no locations')}
 
-        <Map 
-            google={props.google}
-            onClick={onMapClicked}
-            center = {center}
-            style = {style}
-            zoom = {12}
-        >
-        
-        {locations? locations.map((element,index) => 
-        
-            <Marker 
-                onClick={onMarkerClick}
-                position = {element.geometry.location}
-                label = {(index + 1).toString()}
-            />): console.log('no locations')}
+                <InfoWindow
+                    marker={activeMarker}
+                    visible={showInfoWindow}>
+                    <div>
+                        <h1>{markerInfo.name}</h1>
+                        <p>Address:</p>
+                        <p>{markerInfo.formatted_address}</p>
+                        <p>Rating:</p>
+                        <p>{markerInfo.rating}</p>
+                        <a 
+                            href = {`https://www.google.com/maps/place/${markerInfo.formatted_address}`} 
+                            rel="noopener noreferrer"
+                            target="_blank">
+                            get directions</a>
+                    </div>
+                </InfoWindow>
 
-        <InfoWindow
-            marker={activeMarker}
-            visible={showInfoWindow}>
-            <div>
-                <h1>{markerInfo.name}</h1>
-                <p>Address:</p>
-                <p>{markerInfo.formatted_address}</p>
-                <p>Rating:</p>
-                <p>{markerInfo.rating}</p>
-                <a 
-                    href = {`https://www.google.com/maps/place/${markerInfo.formatted_address}`} 
-                    rel="noopener noreferrer"
-                    target="_blank">
-                    get directions</a>
+                </Map>
             </div>
-        </InfoWindow>
-
-        </Map>
+            
         {locations? locations.map((element,index) => 
         <div> 
         <p>Marker: {index + 1} </p>
