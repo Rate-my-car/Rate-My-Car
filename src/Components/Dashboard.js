@@ -55,9 +55,9 @@ const Dashboard = (props) => {
                     return(
                         <div className='featured-vehicle-container'>
                             <img className='featured-vehicle-img'/>
-                            <h3>Year Make Model</h3>
-                            <p>Mileage: 120,000</p>
-                            <h4>Price: $35,000</h4>
+                            <h3 className='featured-vehicle-title'>Year Make Model Model</h3>
+                            <p className='featured-vehicle-mileage'>Mileage: 120,000</p>
+                            <h4 className='featured-vehicle-price'>Price: $35,000</h4>
                            
                             {/* YEAR:<div>{cars.year}</div>
                             MAKE:<div>{cars.make}</div>

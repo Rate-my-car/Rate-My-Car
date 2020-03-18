@@ -4,11 +4,11 @@
 
 .dashboard-container {
   @include small-phone {
-    margin-top: 75px;
+    margin: 75px auto 50px auto;
     min-height: calc(100vh - 155px);
   }
   @include large-phone {
-    margin-top: 75px;
+    margin: 75px auto 50px auto;
     min-height: calc(100vh - 155px);
   }
   @include portrait-tablet {
@@ -24,6 +24,7 @@
 
 .hero-container {
   margin-top: -1px;
+  margin-bottom: 30px;
   width: 100%;
   background-image: url("hero-image.jpg");
   background-size: cover;
@@ -116,4 +117,91 @@
   @include large-phone {
     width: 480px;
   }
+}
+
+.featured-vehicles-container {
+  margin: 10px auto 0 auto;
+  display: flex;
+  justify-content: space-between;
+  @include small-phone {
+    width: 325px;
+    flex-wrap: wrap;
+  }
+  @include large-phone {
+    width: 460px;
+    flex-wrap: wrap;
+  }
+  @include portrait-tablet {
+    width: 580px;
+    flex-wrap: wrap;
+  }
+  @include landscape-tablet {
+    width: 872px;
+  }
+  @include desktop {
+    width: 1140px;
+  }
+}
+
+.featured-vehicle-container {
+  border: 1px solid $lighter-gray;
+  text-align: left;
+  padding: 12px;
+  @include small-phone {
+    width: 184px;
+    margin: 10px auto;
+  }
+  @include large-phone {
+    width: 184px;
+    margin: 10px auto;
+  }
+  @include portrait-tablet {
+    width: 240px;
+    margin: 10px auto;
+  }
+  @include landscape-tablet {
+    width: 178px;
+    margin: 10px auto;
+  }
+  @include desktop {
+    width: 240px;
+    margin: 10px auto;
+  }
+}
+
+.featured-vehicle-img {
+  background-color: gray;
+  width: 100%;
+  margin-bottom: 8px;
+  @include small-phone {
+    height: 153px;
+  }
+  @include large-phone {
+    height: 153px;
+  }
+  @include portrait-tablet {
+    height: 200px;
+  }
+  @include landscape-tablet {
+    height: 153px;
+  }
+  @include desktop {
+    height: 200px;
+  }
+}
+
+.featured-vehicle-title {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.featured-vehicle-mileage {
+  @include body-copy;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+.featured-vehicle-price {
+  color: $red;
+  margin-top: 5px;
 }
