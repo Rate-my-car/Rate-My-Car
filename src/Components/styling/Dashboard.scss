@@ -12,13 +12,13 @@
     min-height: calc(100vh - 155px);
   }
   @include portrait-tablet {
-    margin-top: 100px;
+    margin: 100px auto 50px auto;
   }
   @include landscape-tablet {
-    margin-top: 100px;
+    margin: 100px auto 50px auto;
   }
   @include desktop {
-    margin-top: 100px;
+    margin: 100px auto 50px auto;
   }
 }
 
