@@ -19,7 +19,7 @@ const Form = (props) => {
             <input placeholder='Make' onChange={(e)=>handleInputs({...inputs, make: e.target.value})} />
             <input placeholder='Model' onChange={(e)=>handleInputs({...inputs, model: e.target.value})} />
             <input placeholder='Year' type='number' onChange={(e)=>handleInputs({...inputs, year: e.target.value})} />
-            <input placeholder='Vin' onChange={(e)=>handleInputs({...inputs, vin: e.target.value})} />
+            <input placeholder='VIN' onChange={(e)=>handleInputs({...inputs, vin: e.target.value})} />
             <button onClick={postCar}>Add Car</button>
         </div>
     )

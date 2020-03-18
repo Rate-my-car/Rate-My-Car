@@ -58,7 +58,7 @@ const MyVehicles = (props) => {
                 <div>
                     {mappedUserCars}
                     {inputs.posting ? (
-                        {Form}
+                        <Form />
                     ):(    
                         <button onClick={changePosting}>Add Car</button>
                     )}
