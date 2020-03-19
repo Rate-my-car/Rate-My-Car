@@ -16,7 +16,8 @@ create table cars(
     make varchar(30),
     model varchar(30),
     vin varchar(30),
-    year int
+    year int,
+    car_image varchar(250)
 );
 create table car_ownership(
     owner_id serial primary key,
