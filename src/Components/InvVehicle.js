@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios'
 import Services from './Services'
 import ServiceForm from './ServiceForm'
+import Ownership from './Ownership'
 import './styling/InvVehicle.scss';
 
 
@@ -38,7 +39,7 @@ const InvVehicle = (props) => {
         changeRender({...rendering, bool: !rendering.bool})
     }
     const clicker2 = () => {
-        changeRender({...rendering, posting: !rendering.bool})
+        changeRender({...rendering, posting: !rendering.posting})
     }
     return(
         <div className='inv-vehicle-container'>
@@ -53,6 +54,7 @@ const InvVehicle = (props) => {
             ):(
                 <ServiceForm clicker={clicker} id={props.match.params.id} />
             )}
+            <Ownership id={mounting.car_id}/>
             {/* <button onClick= {() => this.props.history.push(`/postforsale`)}> SELL VEHICLE </button> */}
             {rendering.posting ? (
                 <div>
