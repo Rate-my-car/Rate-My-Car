@@ -34,38 +34,22 @@ const ForSale = (props) => {
                 value= {searchTerm}
                 onChange = {handleChange}
                 />
-                
-                  {/* <ul>
-                    //  {searchResults.map(item => (
-                    //      <li>{item}</li>
-                    //  ))}
-                //  </ul> */}
+
+
+
                 {carsForSale.map(carsForSale => {
                     return(
                         <div className='car-for-sale-container'>
-                            <img className='car-for-sale-img' src='' />
+                            <img className='car-for-sale-img' src={carsForSale.car_image} />
                             <div className='car-for-sale-info-container'>
                                 <div className='car-for-sale-title-location'>
-                                    <h2 className='car-for-sale-title'>Year Make Model Filler-Text</h2>
-                                    <p className='car-for-sale-location'>Sandy, UT</p>
+                                    <h2 className='car-for-sale-title'>{carsForSale.year} {carsForSale.make} {carsForSale.model}</h2>
+                                    <p className='car-for-sale-location'>{carsForSale.location}</p>
                                 </div>
-                                <p className='car-for-sale-description'>
-                                    Description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description.
-                                </p>
-                                <h3 className='car-for-sale-price'>Price: $39,999</h3>
+                                <p className='car-for-sale-description'>{carsForSale.description}</p>
+                                <h3 className='car-for-sale-price'>Price: ${(new Intl.NumberFormat().format(carsForSale.price))}</h3>
                             </div>
-                            <button className='car-for-sale-details-btn'>Details</button>
-                            {/* <div>{carsForSale.image}</div>
-                            MAKE: <div>{carsForSale.make}</div>
-                            MODEL: <div>{carsForSale.model}</div>
-                            YEAR: <div>{carsForSale.year}</div>
-                            LOCATION:<div>{carsForSale.location}</div>
-                            DESCRIPTION:<div>{carsForSale.description}</div>
-                            MILAGE:<div>{carsForSale.milage}</div>
-                            PRICE:<div>{carsForSale.price}</div> */}
-                            
-                            {/* OWNERINFO */}
-                            
+                            <button className='car-for-sale-details-btn'>Details</button>                            
                         </div>
                     )
                 })}
