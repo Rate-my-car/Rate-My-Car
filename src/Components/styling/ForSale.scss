@@ -178,6 +178,7 @@
 }
 
 .car-for-sale-price {
+  text-transform: capitalize;
   color: $red;
   @include portrait-tablet {
     position: absolute;
