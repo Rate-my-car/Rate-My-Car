@@ -158,7 +158,7 @@ const saveChanges = (user_id,userPicture, firstName, lastName, email) => {
                 <div >
                     <div className='edit-profile-pop-up-container'>
                         <h2 className='popup-heading'>Update Profile</h2>
-                        <hr/>
+                        <hr className='form-line'/>
                         {userPicture ? (
                             <img className='new-profile-pic' src={null || userPicture} />
                         ) : (

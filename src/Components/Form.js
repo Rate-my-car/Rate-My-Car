@@ -74,25 +74,29 @@ const Form = (props) => {
 
     return(
         <div className='form-container'>
-            <input placeholder='Make' onChange={(e)=>handleInputs({...inputs, make: e.target.value})} />
-            <input placeholder='Model' onChange={(e)=>handleInputs({...inputs, model: e.target.value})} />
-            <input placeholder='Year' type='number' onChange={(e)=>handleInputs({...inputs, year: e.target.value})} />
-            <input placeholder='Vin' onChange={(e)=>handleInputs({...inputs, vin: e.target.value})} />
+            <h2>Add Car</h2>
+            <hr className='form-line'/>
             {carPicture ? (
                             <img className='new-profile-pic' src={null || carPicture} />
                         ) : (
                             <Dropzone onDropAccepted = {(file) => getSignedRequest(file)} accept = 'image/*' multiple= {false} >
                                 {({getRootProps, getInputProps}) => (
-                                <div  className='dropzone-btn' {...getRootProps()}>
+                                <div  className='dropzone-btn' id='upload-vehicle-pic-btn' {...getRootProps()}>
                                 <input {...getInputProps()} />
                                     {isUploading ? <span>Loading...</span> : 
-                                    <span>Upload New Profile Pic</span>}
+                                    <span>Upload Vehicle Pic</span>}
                                 </div>
                             )}
                         </Dropzone>
                         )}
-    
-            <button onClick={postCar}>Add Car</button>
+            <input placeholder='Make' onChange={(e)=>handleInputs({...inputs, make: e.target.value})} />
+            <input placeholder='Model' onChange={(e)=>handleInputs({...inputs, model: e.target.value})} />
+            <input placeholder='Year' type='number' onChange={(e)=>handleInputs({...inputs, year: e.target.value})} />
+            <input placeholder='Vin' onChange={(e)=>handleInputs({...inputs, vin: e.target.value})} />
+            <div className='add-car-form-btns'>
+                <button className='add-car-cancel-btn' onClick={() => props.history.push('/MyVehicles')}>Cancel</button>
+                <button className='add-car-add-btn' onClick={postCar}>Add Car</button>
+            </div>
         </div>
     )
 }
