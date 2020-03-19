@@ -75,7 +75,7 @@ const Form = (props) => {
     return(
         <div className='form-container'>
             <h2>Add Vehicle</h2>
-            <hr className='form-line'/>
+            <hr className='centered-line'/>
             {carPicture ? (
                             <img className='new-vehicle-pic' src={null || carPicture} />
                         ) : (
