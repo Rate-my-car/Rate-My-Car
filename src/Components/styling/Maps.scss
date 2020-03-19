@@ -1,74 +1,107 @@
 @import "./variables";
 @import "./media-queries";
 @import "./buttons";
+@import './typography';
 
 .service-locator-container {
   @include small-phone {
-    margin: 110px auto 30px auto;
-    width: 325px;
+    margin: 110px auto 40px auto;
+    // width: 325px;
   }
   @include large-phone {
     margin: 110px auto 30px auto;
-    width: 540px;
+    // width: 540px;
   }
   @include portrait-tablet {
     margin: 140px auto 30px auto;
-    width: 708px;
+    // width: 708px;
   }
   @include landscape-tablet {
     margin: 140px auto 30px auto;
-    width: 872px;
+    // width: 872px;
   }
   @include desktop {
     margin: 140px auto 30px auto;
-    width: 1140px;
+    // width: 1140px;
   }
 }
 
-.map-container{
+.map-container-header {
   margin: 0 auto;
-  height: auto;
-  // overflow: hidden;
-  position: relative;
   @include small-phone {
-    width: 325px;
+    width: 335px;
   }
   @include large-phone {
     width: 540px;
   }
   @include portrait-tablet {
-    width: 708px;
+    width: 540px;
   }
   @include landscape-tablet {
-    width: 872px;
+    width: 540px;
   }
   @include desktop {
-    width: 1140px;
+    width: 540px;
+  }
+}
+
+.map-container-search {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+
+  @include small-phone {
+    flex-direction: column;
+  }
+  @include large-phone {
+    flex-direction: row;
+    margin-top: 30px;
+  }
+  @include portrait-tablet {
+    // flex-direction: row;
+    // margin-top: 30px;
+}
+  @include landscape-tablet {
+  }
+  @include desktop {
   }
 }
 
 .search-area-text {
-  margin-top: 20px;
+  @include small-phone {
+    margin-top: 20px;
+  }
 }
 
 .zipcode-input {
-  margin-bottom: 10px;
+  @include small-phone {
+    margin-bottom: 10px;
+  }
+  @include large-phone {
+    margin-left: 20px;
+  }
 }
 
 .map-search-btn {
   @include red-button;
-  margin-bottom: 30px;
+  @include large-phone {
+    margin-left: 20px;
+  }
 }
 
-.google-map {
-  margin: 0 auto;
+.map-business-listing-container{
+  margin: 0 auto 20px auto;
+  display: flex;
   @include small-phone {
+    flex-direction: column;
     width: 325px;
   }
   @include large-phone {
+    flex-direction: column;
     width: 540px;
   }
   @include portrait-tablet {
+    flex-direction: row;
     width: 708px;
   }
   @include landscape-tablet {
@@ -78,3 +111,111 @@
     width: 1140px;
   }
 }
+
+.google-map-container {
+  margin: 0 auto 20px auto;
+  overflow: hidden;
+  position: relative;
+  height: 70vh;
+  @include small-phone {
+    width: 100%;
+  }
+  @include large-phone {
+    width: 100%;
+  }
+  @include portrait-tablet {
+    width: 60%;
+    margin-left: 0;
+  }
+  @include landscape-tablet {
+    width: 70%;
+    margin-left: 0;
+  }
+  @include desktop {
+    width: 70%;
+    margin-left: 0;
+  }
+}
+
+
+
+.marker-text {
+  text-align: center;
+}
+
+.marker-directions-text {
+  color: $red;
+}
+
+.business-listings{
+  display: flex;
+  flex-direction: column;
+  @include small-phone {
+    width: 100%;
+  }
+  @include large-phone {
+    width: 100%;
+  }
+  @include portrait-tablet {
+    width: 37%;
+    height: 70vh;
+    overflow: scroll;
+  }
+  @include landscape-tablet {
+    width: 28%;
+    height: 70vh;
+    overflow: scroll;
+    }
+  @include desktop {
+    width: 28%;
+    height: 70vh;
+    overflow: scroll;  }
+}
+
+.business-listings-bkgd{
+  background-color: $lighter-gray;
+  @include heading-4;
+  padding: 20px 10px;
+}
+
+.business-listing {
+  margin: 10px 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-bottom: 15px;
+  border-bottom: 1px solid $lighter-gray;
+}
+
+.business-listing-marker {
+  color: $red;
+}
+
+.business-listing-info {
+  margin: 0 0 8px 0;
+}
+// #google-map {
+//   margin: 0 auto;
+//   padding: 0;
+//   height: 300px;
+//   overflow: hidden;
+//   position: relative;
+//   @include small-phone {
+//     // width: 325px;
+//     width: 205px;
+//     // margin: 20px auto 0 auto;
+//   }
+//   @include large-phone {
+//     width: 540px;
+//   }
+//   @include portrait-tablet {
+//     width: 708px;
+//   }
+//   @include landscape-tablet {
+//     width: 872px;
+//   }
+//   @include desktop {
+//     width: 1140px;
+//   }
+// }
