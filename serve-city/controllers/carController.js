@@ -1,10 +1,10 @@
 module.exports = {
     async postCar(req, res){
-        const {make, model, year, vin} = req.body
-        console.log(req.session)
+        const {make, model, year, vin,carPicture} = req.body
+        // console.log(req.session)
         const {user_id} = req.session.user
         const db = req.app.get('db')
-        let newCar = await db.cars.post_car(make, model, year, vin)
+        let newCar = await db.cars.post_car(make, model, year, vin, carPicture)
         await db.cars.post_my_car(newCar[0].car_id, user_id)
         res.status(200).send(newCar)
     },

@@ -29,8 +29,8 @@ const ForSale = (props) => {
                 <input 
                 type = 'text'
                 placeholder= 'SEARCH VEHICLES' 
-                // value= {searchTerm}
-                // onChange = {handleChange}
+                value= {searchTerm}
+                onChange = {handleChange}
                 />
                 
                   {/* <ul>
