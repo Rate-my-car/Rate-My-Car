@@ -62,7 +62,9 @@ useEffect(() => {
         
         <div className='map-container'>
             <div className='map-container-header'>
-                <h1>Service & Parts Locator</h1> 
+                <h1>Service & Parts Locator</h1>
+                <hr className='centered-line' id='my-vehicles-line'/>
+ 
                 <div className='map-container-search'>
                     <h4 className='search-area-text'>Search in area:</h4>
                     <input className='zipcode-input' placeholder = 'Enter Zip Code' onChange = { e => setZipCode(e.target.value)} />

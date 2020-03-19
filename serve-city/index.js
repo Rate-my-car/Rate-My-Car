@@ -25,7 +25,7 @@ app.use(session({
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db)
     console.log('db running')
-    app.listen(SERVER_PORT, () => console.log(`server is laying waste to its enemies on ${SERVER_PORT}`))
+    app.listen(SERVER_PORT, () => console.log(`server is listening on: ${SERVER_PORT}`))
 }).catch(err => console.log(err))
 
 app.get('/api/signs3', (req,res) => {
@@ -70,6 +70,7 @@ app.post('/api/sale', carCtrl.addForSale)
 app.get('/api/forsale', carCtrl.getForSale)
 app.get('/api/cars/:id', carCtrl.getCar)
 app.get('/api/maintenance/:id', carCtrl.getMaintenance)
+app.get('/api/ownership/:id', carCtrl.getOwnership)
 
 //map endpoints
 app.post('/api/map', mapCtrl.getLocations)
