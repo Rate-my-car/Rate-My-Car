@@ -25,7 +25,7 @@ app.use(session({
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db)
     console.log('db running')
-    app.listen(SERVER_PORT, () => console.log(`server is laying waste to its enemies on ${SERVER_PORT}`))
+    app.listen(SERVER_PORT, () => console.log(`server is listening on: ${SERVER_PORT}`))
 }).catch(err => console.log(err))
 
 app.get('/api/signs3', (req,res) => {

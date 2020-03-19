@@ -40,7 +40,7 @@ const MyVehicles = (props) => {
         <div className='my-vehicles-container'>
             
                 <div>
-                    {props.user.user_id ? (
+                    {props.user.reducer.user.user_id ? (
                         <div>
                             {inputs.myCars[0] ? mappedUserCars : <h1>Please add a car</h1> }
                             
@@ -49,7 +49,7 @@ const MyVehicles = (props) => {
                         <h1>Please Login</h1>
                     )}
                 </div>
-                <button onClick={changePosting}>Add Car</button>
+                {mappedUserCars}
         </div>
     )
 }
