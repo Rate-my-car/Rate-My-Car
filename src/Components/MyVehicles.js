@@ -46,7 +46,7 @@ const MyVehicles = (props) => {
                         <div>
                             <h1>My Vehicles</h1>
                             <hr className='centered-line' id='my-vehicles-line' />
-                            {inputs.myCars[0] ? mappedUserCars : <h1>Please add a car</h1> }
+                            {inputs.myCars[0] ? mappedUserCars : <h2>Please add a vehicle</h2> }
                             <div className='my-vehicles-add-car-btn-container'>
                                 <button className='my-vehicles-add-car-btn' onClick={changePosting}>Add Car</button>
                             </div>
