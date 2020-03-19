@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { Profiler } from 'react'
 // import {unmountComponentAtNode} from 'react-dom'
 import renderer from 'react-test-renderer'
 import {HashRouter, Link} from 'react-router-dom'
+import ForSale from '../Components/ForSale'
+import Form from '../Components/Form'
 
 describe('Routes will work', ()=> {
     //todd 1
@@ -54,4 +56,11 @@ describe('Routes will work', ()=> {
         let tree = component.toJSON();
         expect(tree).toMatchSnapshot();
     })
+
+    //tia 1
+    // post for sale
+    // Profile
+    // maps
+    // Form
+    // dashboard
 })
