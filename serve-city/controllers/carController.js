@@ -1,10 +1,10 @@
 module.exports = {
     async postCar(req, res){
-        const {make, model, year, vin, car_image} = req.body
+        const {make, model, year, vin, carPicture} = req.body
         // console.log(req.session)
         const {user_id} = req.session.user
         const db = req.app.get('db')
-        let newCar = await db.cars.post_car(make, model, year, vin, car_image)
+        let newCar = await db.cars.post_car(make, model, year, vin, carPicture)
         await db.cars.post_my_car(newCar[0].car_id, user_id)
         res.status(200).send(newCar)
     },
@@ -52,5 +52,11 @@ module.exports = {
         const {id} = req.params
         let maintenance = await db.cars.get_my_services(id)
         res.status(200).send(maintenance)
+    },
+    async getOwnership(req, res){
+        const db = req.app.get('db')
+        const {id} = req.params
+        let ownership = await db.cars.get_ownership(id)
+        res.status(200).send(ownership)
     }
 }
