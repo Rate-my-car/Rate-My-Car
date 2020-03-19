@@ -60,10 +60,9 @@ const ForSale = (props) => {
                                     <p className='car-for-sale-location'>{carsForSale.location}</p>
                                 </div>
                                 <p className='car-for-sale-description'>{carsForSale.description}</p>
-                                <h3 className='car-for-sale-price'>Price: ${carsForSale.price}</h3>
+                                <h3 className='car-for-sale-price'>Price: ${(new Intl.NumberFormat().format(carsForSale.price))}</h3>
                             </div>
-                            <button className='car-for-sale-details-btn'>Details</button>
-                            
+                            <button className='car-for-sale-details-btn'>Details</button>                            
                         </div>
                     )
                 })}
