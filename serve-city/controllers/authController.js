@@ -31,7 +31,8 @@ module.exports = {
         if(!authenticated){
             return res.status(202).send('password incorrect')
         }
-        delete user[0].logPassword; 
+       
+        delete user[0].password; 
         req.session.user = user[0]
         res.status(202).send(req.session.user)
     },

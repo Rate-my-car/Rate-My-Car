@@ -5,10 +5,11 @@ const Ownership = (props) => {
     const [array, handleArray] = useState({ownership: []})
     useEffect(()=> {
         const {id} = props
+        console.log(id)
         axios.get(`/api/ownership/${id}`).then(res => {
             handleArray({...array, ownership: res.data})
         })
-    })
+    },[])
     const mappedArr = array.ownership.map((el)=> {
         return (
             <tr>
