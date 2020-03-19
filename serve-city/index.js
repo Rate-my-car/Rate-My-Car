@@ -71,6 +71,7 @@ app.get('/api/forsale', carCtrl.getForSale)
 app.get('/api/cars/:id', carCtrl.getCar)
 app.get('/api/maintenance/:id', carCtrl.getMaintenance)
 app.get('/api/ownership/:id', carCtrl.getOwnership)
+app.post('/api/owner', carCtrl.checkOwner)
 
 //map endpoints
 app.post('/api/map', mapCtrl.getLocations)
