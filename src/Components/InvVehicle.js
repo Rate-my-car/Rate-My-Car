@@ -20,17 +20,19 @@ const InvVehicle = (props) => {
         })
     },[])
     console.log()
-    const [mounting, handleMount] = useState({make: '', model: '', year: 0, vin: '', car_id: null})
+    const [mounting, handleMount] = useState({car_image: '', make: '', model: '', year: 0, vin: '', car_id: null})
     const [rendering, changeRender] = useState({bool: false, posting: false})
-    const [inputs, handleInputs] = useState({description: '', milage: '', price:'', location: '', sold: ''})
+    const [inputs, handleInputs] = useState({car_image: '', description: '', milage: '', price:'', location: '', sold: ''})
     const postCar = () => {
-        const {description, milage, price, location, sold} = inputs
+        const {car_image, description, milage, price, location, sold} = inputs
         const {car_id} = mounting
         const {user_id} = props.user
-        axios.post('/api/sale', {car_id, user_id, description, milage, price, location, sold}).then(()=> {
+        axios.post('/api/sale', {car_id, user_id, car_image, description, milage, price, location, sold}).then(()=> {
             props.history.push('/')
         })
     }
+
+    console.log(mounting)
     
     const clicker = () => {
         changeRender({...rendering, bool: !rendering.bool})
@@ -40,6 +42,7 @@ const InvVehicle = (props) => {
     }
     return(
         <div className='inv-vehicle-container'>
+            <img src = {mounting.car_image}/>
             <span>{mounting.make}</span>
             <span>{mounting.model}</span>
             <span>{mounting.year}</span>

@@ -9,7 +9,7 @@ import Form from './Form'
 const MyVehicles = (props) => {
     useEffect(()=> {
         const {user_id} = props.user
-        axios.get(`api/users/cars/${user_id}`).then(res=> {
+        axios.get(`api/user/cars/${user_id}`).then(res=> { console.log(res.data)
             handleInputs({...inputs, myCars: res.data})
         })
     }, [])
@@ -21,6 +21,7 @@ const MyVehicles = (props) => {
                 <h1>{el.make}</h1>
                 <h1>{el.model}</h1>
                 <h1>{el.year}</h1>
+                <img src = {el.car_image}/> 
             </div>
         )
     })
@@ -33,14 +34,17 @@ const MyVehicles = (props) => {
         props.history.push('/form')
     }
     
-    console.log(props.user.reducer.user.user_id)
+    console.log(props.user)
     return(
-
+        console.log(inputs.myCars[0]), 
         <div className='my-vehicles-container'>
             
                 <div>
                     {props.user.reducer.user.user_id ? (
-                        <button onClick={changePosting}>Add a car</button>
+                        <div>
+                            {inputs.myCars[0] ? mappedUserCars : <h1>Please add a car</h1> }
+                            
+                        </div>
                     ):(
                         <h1>Please Login</h1>
                     )}
@@ -51,7 +55,7 @@ const MyVehicles = (props) => {
 }
 
 function mapProps(state){
-    return {user: state}
+    return {user: state.reducer.user}
 }
 
 
