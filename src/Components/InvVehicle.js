@@ -53,7 +53,7 @@ const InvVehicle = (props) => {
             ):(
                 <ServiceForm clicker={clicker} id={props.match.params.id} />
             )}
-            <button onClick= {() => this.props.history.push(`/postforsale`)}> SELL VEHICLE </button>
+            <button onClick= {() => props.history.push(`/postforsale`)}> SELL VEHICLE </button>
             {rendering.posting ? (
                 <div>
                     <input placeholder='Description' onChange={(e)=>handleInputs({...inputs, description: e.target.value})} />                        
