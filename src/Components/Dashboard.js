@@ -64,7 +64,7 @@ console.log(new Intl.NumberFormat().format(number));
                             <img className='featured-vehicle-img' src={cars.car_image}/>
                             <h3 className='featured-vehicle-title'>{cars.year} {cars.make} {cars.model}</h3>
                             <p className='featured-vehicle-mileage'>Mileage: {cars.milage}</p>
-                            <h4 className='featured-vehicle-price'>Price: ${(new Intl.NumberFormat().format(cars.price))}</h4>
+                            <h4 className='featured-vehicle-price'>Price: ${(new Intl.NumberFormat().format(cars.price))}</h4> 
                         </div>
                     )
                 })}
