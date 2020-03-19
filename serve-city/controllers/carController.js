@@ -1,10 +1,10 @@
 module.exports = {
     async postCar(req, res){
-        const {make, model, year, vin,carPicture} = req.body
+        const {make, model, year, vin, car_image} = req.body
         // console.log(req.session)
         const {user_id} = req.session.user
         const db = req.app.get('db')
-        let newCar = await db.cars.post_car(make, model, year, vin, carPicture)
+        let newCar = await db.cars.post_car(make, model, year, vin, car_image)
         await db.cars.post_my_car(newCar[0].car_id, user_id)
         res.status(200).send(newCar)
     },
@@ -23,17 +23,17 @@ module.exports = {
     },
     async addForSale(req, res){
         const db = req.app.get('db')
-        const {car_id, description, milage, price, location} = req.body
+        const {car_id, car_image, description, milage, price, location} = req.body
         const {user_id} = req.session.user
-        let carForSale = await db.cars.car_sale(car_id, user_id, description, milage, price, location)
+        let carForSale = await db.cars.car_sale(car_id, user_id, car_image, description, milage, price, location)
         res.status(200).send(carForSale)
     },
 
     async getForSale(req, res) {
         const db = req.app.get('db')
-        const {make, model, year, owner, milage, price} = req.body
+        const {car_image, make, model, year, owner, milage, price} = req.body
 
-        db.cars.get_for_sale(make, model, year, owner, milage, price)
+        db.cars.get_for_sale(car_image, make, model, year, owner, milage, price)
         .then((results) => res.status(200).send(results))
     },
 
