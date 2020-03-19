@@ -129,7 +129,7 @@ const saveChanges = (user_id,userPicture, firstName, lastName, email) => {
                 </div>
                 <div className='username-container'>
                     <p className='profile-sub-heading'>Username</p>
-                    <h2>{props.user.username}</h2>
+                    <h1>{props.user.username}</h1>
                     <hr className='profile-line'/>
                 </div>
             </div>
@@ -158,7 +158,7 @@ const saveChanges = (user_id,userPicture, firstName, lastName, email) => {
                 <div >
                     <div className='edit-profile-pop-up-container'>
                         <h2 className='popup-heading'>Update Profile</h2>
-                        <hr className='form-line'/>
+                        <hr className='centered-line'/>
                         {userPicture ? (
                             <img className='new-profile-pic' src={null || userPicture} />
                         ) : (

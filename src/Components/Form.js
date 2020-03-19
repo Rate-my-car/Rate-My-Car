@@ -74,10 +74,10 @@ const Form = (props) => {
 
     return(
         <div className='form-container'>
-            <h2>Add Car</h2>
-            <hr className='form-line'/>
+            <h2>Add Vehicle</h2>
+            <hr className='centered-line'/>
             {carPicture ? (
-                            <img className='new-profile-pic' src={null || carPicture} />
+                            <img className='new-vehicle-pic' src={null || carPicture} />
                         ) : (
                             <Dropzone onDropAccepted = {(file) => getSignedRequest(file)} accept = 'image/*' multiple= {false} >
                                 {({getRootProps, getInputProps}) => (
@@ -89,13 +89,13 @@ const Form = (props) => {
                             )}
                         </Dropzone>
                         )}
+            <input placeholder='Year' type='number' onChange={(e)=>handleInputs({...inputs, year: e.target.value})} />
             <input placeholder='Make' onChange={(e)=>handleInputs({...inputs, make: e.target.value})} />
             <input placeholder='Model' onChange={(e)=>handleInputs({...inputs, model: e.target.value})} />
-            <input placeholder='Year' type='number' onChange={(e)=>handleInputs({...inputs, year: e.target.value})} />
-            <input placeholder='Vin' onChange={(e)=>handleInputs({...inputs, vin: e.target.value})} />
+            <input placeholder='VIN' onChange={(e)=>handleInputs({...inputs, vin: e.target.value})} />
             <div className='add-car-form-btns'>
                 <button className='add-car-cancel-btn' onClick={() => props.history.push('/MyVehicles')}>Cancel</button>
-                <button className='add-car-add-btn' onClick={postCar}>Add Car</button>
+                <button className='add-car-add-btn' onClick={postCar}>Add Vehicle</button>
             </div>
         </div>
     )
