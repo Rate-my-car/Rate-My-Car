@@ -26,6 +26,8 @@ const ForSale = (props) => {
     return(
         <div className='for-sale-container'>
             <div>
+                <h1 className='vehicles-for-sale-heading-text'>Vehicles for Sale</h1>
+                <hr className='centered-line' id='my-vehicles-line'/>
                 <input 
                 type = 'text'
                 placeholder= 'SEARCH VEHICLES' 
@@ -40,18 +42,30 @@ const ForSale = (props) => {
                 //  </ul> */}
                 {carsForSale.map(carsForSale => {
                     return(
-                        <div>
-                            <div>{carsForSale.image}</div>
+                        <div className='car-for-sale-container'>
+                            <img className='car-for-sale-img' src='' />
+                            <div className='car-for-sale-info-container'>
+                                <div className='car-for-sale-title-location'>
+                                    <h2 className='car-for-sale-title'>Year Make Model Filler-Text</h2>
+                                    <p className='car-for-sale-location'>Sandy, UT</p>
+                                </div>
+                                <p className='car-for-sale-description'>
+                                    Description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description.
+                                </p>
+                                <h3 className='car-for-sale-price'>Price: $39,999</h3>
+                            </div>
+                            <button className='car-for-sale-details-btn'>Details</button>
+                            {/* <div>{carsForSale.image}</div>
                             MAKE: <div>{carsForSale.make}</div>
                             MODEL: <div>{carsForSale.model}</div>
                             YEAR: <div>{carsForSale.year}</div>
                             LOCATION:<div>{carsForSale.location}</div>
                             DESCRIPTION:<div>{carsForSale.description}</div>
                             MILAGE:<div>{carsForSale.milage}</div>
-                            PRICE:<div>{carsForSale.price}</div>
+                            PRICE:<div>{carsForSale.price}</div> */}
                             
                             {/* OWNERINFO */}
-                            <button> Details </button>
+                            
                         </div>
                     )
                 })}

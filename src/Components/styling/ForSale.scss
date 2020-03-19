@@ -1,28 +1,217 @@
-@import './variables';
-@import './media-queries';
-@import './typography';
-@import './buttons';
-@import './inputs';
+@import "./variables";
+@import "./media-queries";
+@import "./typography";
+@import "./buttons";
+@import "./inputs";
 
 .for-sale-container {
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    margin-bottom: 40px;
-    @include small-phone {
-      margin-top: 100px;
-    }
-    @include large-phone {
-      margin-top: 100px;
-    }
-    @include portrait-tablet {
-      margin-top: 140px;
-      min-height: calc(100vh - 260px);
-    }
-    @include landscape-tablet {
-      margin-top: 140px;
-    }
-    @include desktop {
-      margin-top: 140px;
-    }
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin-bottom: 40px;
+  @include small-phone {
+    margin-top: 100px;
   }
+  @include large-phone {
+    margin-top: 100px;
+  }
+  @include portrait-tablet {
+    margin-top: 140px;
+    min-height: calc(100vh - 260px);
+  }
+  @include landscape-tablet {
+    margin-top: 140px;
+  }
+  @include desktop {
+    margin-top: 140px;
+  }
+}
+
+.vehicles-for-sale-heading-text {
+  @include small-phone {
+    width: 250px;
+    margin: 0 auto;
+  }
+  // @include large-phone{
+  //     width: 540px;
+  // };
+  // @include portrait-tablet{
+  //     width: 708px;
+  // };
+  // @include landscape-tablet{
+  //     width: 872px;
+  // };
+  // @include desktop{
+  //     width: 1140px;
+  // };
+}
+
+.car-for-sale-container {
+  margin: 25px auto;
+  border: 1px solid $lighter-gray;
+  text-align: left;
+  position: relative;
+  @include small-phone {
+    width: 282px;
+    padding: 17px;
+  }
+  @include large-phone {
+    width: 507px;
+    padding: 17px;
+    display: flex;
+  }
+  @include portrait-tablet {
+    width: 678px;
+    padding: 17px;
+  }
+  @include landscape-tablet {
+    width: 842px;
+    padding: 17px;
+  }
+  @include desktop {
+    width: 1110px;
+    padding: 17px;
+  }
+}
+
+.car-for-sale-img {
+  object-fit: cover;
+  @include small-phone {
+    width: 282px;
+    height: 132px;
+    margin-bottom: 15px;
+  }
+  @include large-phone {
+    width: 223px;
+    height: 185px;
+  }
+  @include portrait-tablet {
+    width: 223px;
+    height: 185px;
+  }
+  @include landscape-tablet {
+    width: 223px;
+    height: 185px;
+  }
+  @include desktop {
+    width: 223px;
+    height: 185px;
+  }
+}
+
+.car-for-sale-info-container {
+  position: relative;
+  @include large-phone {
+    margin-left: 15px;
+  }
+  @include portrait-tablet {
+  }
+  @include landscape-tablet {
+    margin-left: 20px;
+  }
+  @include desktop {
+  }
+}
+
+.car-for-sale-title-location {
+  display: flex;
+  @include small-phone {
+    flex-direction: column;
+  }
+  @include large-phone {
+    flex-direction: column;
+  }
+  @include portrait-tablet {
+    flex-direction: column;
+  }
+  @include landscape-tablet {
+    flex-direction: row;
+    justify-content: baseline;
+    align-items: baseline;
+    flex-wrap: wrap;
+  }
+  @include desktop {
+  }
+}
+
+.car-for-sale-title {
+  @include landscape-tablet {
+    margin-right: 15px;
+  }
+  @include desktop {
+  }
+}
+
+.car-for-sale-location {
+  @include fine-print;
+  @include portrait-tablet {
+    flex-direction: column;
+    margin: 0;
+  }
+  @include landscape-tablet {
+  }
+  @include desktop {
+  }
+}
+
+.car-for-sale-description {
+  @include small-phone {
+    display: none;
+  }
+  @include large-phone {
+    display: none;
+  }
+  @include portrait-tablet {
+    display: inherit;
+    margin: 0 0 10px 0;
+    max-height: 90px;
+    overflow: scroll;
+  }
+  @include landscape-tablet {
+    display: inherit;
+    margin: 5px 0 10px 0;
+    max-height: 90px;
+    overflow: scroll;
+  }
+  @include desktop {
+  }
+}
+
+.car-for-sale-price {
+  color: $red;
+  @include portrait-tablet {
+    position: absolute;
+    bottom: 0;
+  }
+  @include landscape-tablet {
+    position: absolute;
+    bottom: 0;
+  }
+  @include desktop {
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+.car-for-sale-details-btn {
+  position: absolute;
+  right: 17px;
+  bottom: 17px;
+  @include red-button;
+}
+
+// @include small-phone{
+//     width: 325px;
+// };
+// @include large-phone{
+//     width: 540px;
+// };
+// @include portrait-tablet{
+//     width: 708px;
+// };
+// @include landscape-tablet{
+//     width: 872px;
+// };
+// @include desktop{
+//     width: 1140px;
+// };
