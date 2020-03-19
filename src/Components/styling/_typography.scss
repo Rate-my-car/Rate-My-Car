@@ -10,6 +10,7 @@
 @mixin heading-2{
     font-family: $display-font;
     font-size: 25px;
+    line-height: 27px;
     font-weight: 700;
     text-transform: uppercase;
     color: $text-navy;
