@@ -176,6 +176,7 @@
   background-color: $lighter-gray;
   @include heading-4;
   padding: 20px 10px;
+  height: 100%;
 }
 
 .business-listing {
@@ -195,27 +196,3 @@
 .business-listing-info {
   margin: 0 0 8px 0;
 }
-// #google-map {
-//   margin: 0 auto;
-//   padding: 0;
-//   height: 300px;
-//   overflow: hidden;
-//   position: relative;
-//   @include small-phone {
-//     // width: 325px;
-//     width: 205px;
-//     // margin: 20px auto 0 auto;
-//   }
-//   @include large-phone {
-//     width: 540px;
-//   }
-//   @include portrait-tablet {
-//     width: 708px;
-//   }
-//   @include landscape-tablet {
-//     width: 872px;
-//   }
-//   @include desktop {
-//     width: 1140px;
-//   }
-// }
