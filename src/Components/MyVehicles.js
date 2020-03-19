@@ -18,9 +18,9 @@ const MyVehicles = (props) => {
     let mappedUserCars = inputs.myCars.map((el)=> {
         return(
             <div onClick={()=> props.history.push(`/vehicles/${el.car_id}`)}>
-                <h1>{el.make}</h1>
-                <h1>{el.model}</h1>
-                <h1>{el.year}</h1>
+                <h1>{el.year} {el.make} {el.model}</h1>
+                {/* <h1></h1>
+                <h1></h1> */}
                 <img src = {el.car_image}/> 
             </div>
         )
