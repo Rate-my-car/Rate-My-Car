@@ -7,7 +7,6 @@ const Maps = () => {
 
     return(
         <div className='service-locator-container'>
-            <h1>Service Locator</h1>
             <MapContainer />
         </div>
     )
