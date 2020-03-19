@@ -34,20 +34,7 @@ const ForSale = (props) => {
                 value= {searchTerm}
                 onChange = {handleChange}
                 />
-                
-                {/* maint_id: 4
-                car_id: 6
-                user_id: 13
-                sold: false
-                description: "really cool car"
-                milage: 100
-                price: 120000
-                location: "AF"
-                make: "Ford"
-                model: "Raptor"
-                vin: "1234596867"
-                year: 2020
-                car_image */}
+
 
 
                 {carsForSale.map(carsForSale => {
