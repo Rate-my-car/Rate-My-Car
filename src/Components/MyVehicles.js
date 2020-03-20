@@ -29,9 +29,9 @@ const MyVehicles = (props) => {
         )
     })
     
-    console.log(props.match.params.id)
-    console.log(props.user)
-    console.log(inputs.myCars)
+    // console.log(props.match.params.id)
+    // console.log(props.user)
+    // console.log(inputs.myCars)
 
     const changePosting = () => {
         props.history.push('/form')

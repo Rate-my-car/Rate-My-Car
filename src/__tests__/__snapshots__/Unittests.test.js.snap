@@ -1,5 +1,68 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Routes will work Will take you to a single vehicle "/vehicles/:id" 1`] = `
+<a
+  href="#/vehicles/:id"
+  onClick={[Function]}
+/>
+`;
+
+exports[`Routes will work Will take you to the Dashboard Page "/auth" 1`] = `
+<a
+  href="#/auth"
+  onClick={[Function]}
+/>
+`;
+
+exports[`Routes will work Will take you to the Dashboard/Landing Page "/" 1`] = `
+<a
+  href="#/auth"
+  onClick={[Function]}
+/>
+`;
+
+exports[`Routes will work Will take you to the Dashboard/Landing Page "/auth" 1`] = `
+<a
+  href="#/auth"
+  onClick={[Function]}
+/>
+`;
+
+exports[`Routes will work Will take you to the Login/Register Page "/auth" 1`] = `
+<a
+  href="#/auth"
+  onClick={[Function]}
+/>
+`;
+
+exports[`Routes will work Will take you to the Login/Register Page "/auth" 2`] = `
+<a
+  href="#/auth"
+  onClick={[Function]}
+/>
+`;
+
+exports[`Routes will work Will take you to the Login/Register Page "/postforsale" 1`] = `
+<a
+  href="#/postforsale"
+  onClick={[Function]}
+/>
+`;
+
+exports[`Routes will work Will take you to the My Vehicles Page "/MyVehicles" 1`] = `
+<a
+  href="#/MyVehicles"
+  onClick={[Function]}
+/>
+`;
+
+exports[`Routes will work Will take you to the Post Car for Sale Page "/postforsale" 1`] = `
+<a
+  href="#/postforsale"
+  onClick={[Function]}
+/>
+`;
+
 exports[`Routes will work will bring you to the dashboard "/" 1`] = `
 <a
   href="#/"

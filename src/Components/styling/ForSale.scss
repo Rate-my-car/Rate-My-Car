@@ -178,6 +178,7 @@
 }
 
 .car-for-sale-price {
+  text-transform: capitalize;
   color: $red;
   @include portrait-tablet {
     position: absolute;
@@ -200,18 +201,3 @@
   @include red-button;
 }
 
-// @include small-phone{
-//     width: 325px;
-// };
-// @include large-phone{
-//     width: 540px;
-// };
-// @include portrait-tablet{
-//     width: 708px;
-// };
-// @include landscape-tablet{
-//     width: 872px;
-// };
-// @include desktop{
-//     width: 1140px;
-// };

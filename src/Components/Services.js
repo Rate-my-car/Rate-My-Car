@@ -7,7 +7,7 @@ const Services = (props) => {
         axios.get(`/api/maintenance/${id}`).then(res=> {
             handleArray({...array, maintenance: res.data})
         })
-    })
+    },[])
     const [array, handleArray] = useState({maintenance: []})
     const mappedArr = array.maintenance.map((el)=> {
         return (

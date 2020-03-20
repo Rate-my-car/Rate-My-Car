@@ -25,7 +25,7 @@ module.exports = {
         const db = req.app.get('db')
         const {car_id, car_image, description, milage, price, location} = req.body
         const {user_id} = req.session.user
-        let carForSale = await db.cars.car_sale(car_id, user_id, car_image, description, milage, price, location)
+        let carForSale = await db.cars.sale_car(car_id, user_id, description, milage, price, location)
         res.status(200).send(carForSale)
     },
 
@@ -45,9 +45,9 @@ module.exports = {
     async getCar(req,res){
         const db = req.app.get('db')
         const {id} = req.params
-        console.log(id)
+        // console.log(id)
         let car = await db.cars.get_car(id)
-        console.log(car)
+        // console.log(car)
         res.status(200).send(car)
     },
     async getMaintenance(req, res){
@@ -61,5 +61,13 @@ module.exports = {
         const {id} = req.params
         let ownership = await db.cars.get_ownership(id)
         res.status(200).send(ownership)
+    },
+    async checkOwner(req,res){ 
+        const db =  req.app.get('db')
+        const {id} = req.body
+        // console.log(id)
+        let owner = await db.cars.check_owner(id)
+        // console.log(owner)
+        res.status(200).send(owner)
     }
 }
