@@ -12,16 +12,26 @@ const InvVehicle = (props) => {
         console.log(props.match.params.id)
         const {id} = props.match.params
         axios.get(`/api/cars/${id}`).then(res=> {
-            console.log(res.data)
+            // console.log(res.data)
             handleMount({...mounting, make: res.data[0].make,
                                       model: res.data[0].model,
                                       year: res.data[0].year,
                                       vin: res.data[0].vin,
                                       car_id: res.data[0].car_id
+                                     
             })
         })
     },[])
-    console.log()
+
+    const [currentOwner, setCurrentOwner] = useState(0)
+
+    useEffect(() => { 
+        const {id} = props.match.params
+        // console.log(id)
+        axios.post('/api/owner',{id}).then(res => {setCurrentOwner(res.data[0].user_id) })
+
+    },[])
+   
     const [mounting, handleMount] = useState({car_image: '', make: '', model: '', year: 0, vin: '', car_id: null})
     const [rendering, changeRender] = useState({bool: false, posting: false})
     const [inputs, handleInputs] = useState({car_image: '', description: '', milage: '', price:'', location: '', sold: false})
@@ -31,13 +41,13 @@ const InvVehicle = (props) => {
         const {car_image, description, milage, price, location, sold} = inputs
         const {car_id} = mounting
         const {user_id} = props.user
-        console.log(inputs,car_id,user_id)
+        // console.log(inputs,car_id,user_id)
         axios.post('/api/sale', {car_id, user_id, car_image, description, milage, price, location, sold}).then(()=> {
             props.history.push('/')
         })
     }
 
-    // console.log(mounting)
+    // console.log(props.user)
     
     const clicker = () => {
         changeRender({...rendering, bool: !rendering.bool})
@@ -52,15 +62,25 @@ const InvVehicle = (props) => {
             <span>{mounting.model}</span>
             <span>{mounting.year}</span>
             <span>{mounting.vin}</span>
+            
             <Services id={props.match.params.id} />
-            {!rendering.bool ? (
+
+           {/* {console.log(currentOwner,props.user.user_id)} */}
+            { currentOwner === props.user.user_id ? 
+            !rendering.bool ? (
                 <button onClick={clicker}>Post Maintenance</button>
             ):(
                 <ServiceForm clicker={clicker} id={props.match.params.id} />
-            )}
-            <Ownership id={mounting.car_id}/>
+            ) : null} 
+
+                    
+
+                {/* {console.log(mounting.car_id)} */}
+            <Ownership id={props.match.params.id}/>
             {/* <button onClick= {() => this.props.history.push(`/postforsale`)}> SELL VEHICLE </button> */}
-            {rendering.posting ? (
+
+            {currentOwner === props.user.user_id ? 
+            rendering.posting ? (
                 <div>
                     <input placeholder='Description' onChange={(e)=>handleInputs({...inputs, description: e.target.value})} />                        
                     <input placeholder='Milage' onChange={(e)=>handleInputs({...inputs, milage: e.target.value})} />
@@ -70,7 +90,9 @@ const InvVehicle = (props) => {
                     <button onClick={postCar}>Add Car For Sale</button>
                 </div>):(
                     <button onClick={clicker2}>Post for Sale</button>
-                )}
+                ):
+                null
+            }
         </div>
     )
 }

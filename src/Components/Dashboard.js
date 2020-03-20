@@ -11,31 +11,13 @@ const Dashboard = (props) => {
         axios.get('/api/forsale').then(res => {
             let list = []
             for(let i = 0; i < 4; i++){
-                list.push(res.data[Math.ceil(Math.random()* list.length)])
+                list.push(res.data[Math.ceil(Math.random() * list.length)])
             }
             setFeaturedCars(list)
         }).catch(err => console.log(err))
     }, [])
 
     console.log(featuredCars)
-
-    // const mappedFeaturedCars = featuredCars.map((car, i) => {
-    //     const year
-    // })
-
-
-    // const mappedCampgrounds = campgrounds.map((campground, i) => {
-    //     const {campground_id, campground_img, park_name, campground_name} = campground
-    //     return (
-    //         <div key={i} className='campground-container' onClick={() => props.history.push(`/campground/${campground_id}`)}>
-    //             <img id='campground-preview-img' src={campground_img} alt={campground_name} />
-    //             <p className='preview-park-name'>{park_name}</p>
-    //             <h3 className='preview-campground-name'>{campground_name}</h3>
-    //         </div>
-    //     )
-    // })
-
-
     return(
         <div className='dashboard-container'>
             <div className='hero-container'>
@@ -53,21 +35,13 @@ const Dashboard = (props) => {
                 
                 {featuredCars.map(cars => {
                     return(
-                        <div className='featured-vehicle-container'>
-                            <img className='featured-vehicle-img'/>
-                            <h3 className='featured-vehicle-title'>Year Make Model Model</h3>
-                            <p className='featured-vehicle-mileage'>Mileage: 120,000</p>
-                            <h4 className='featured-vehicle-price'>Price: $35,000</h4>
-                           
-                            {/* YEAR:<div>{cars.year}</div>
-                            MAKE:<div>{cars.make}</div>
-                            MODEL:<div>{cars.model}</div>
-                            OWNER: <div>{cars.username}</div>
-                            MILAGE:<div>{cars.milage}</div>
-                            PRICE:<div>{cars.price}</div> */}
-                            
-                            {/* OWNERINFO */}
-                            {/* <button> Details </button> */}
+                        
+
+                        <div className='featured-vehicle-container' onClick={() => props.history.push(`/vehicles/${cars.car_id}`)}>
+                            <img className='featured-vehicle-img' src={cars.car_image}/>
+                            <h3 className='featured-vehicle-title'>{cars.year} {cars.make} {cars.model}</h3>
+                            <p className='featured-vehicle-mileage'>Mileage: {cars.milage}</p>
+                            <h4 className='featured-vehicle-price'>Price: ${(new Intl.NumberFormat().format(cars.price))}</h4> 
                         </div>
                     )
                 })}
