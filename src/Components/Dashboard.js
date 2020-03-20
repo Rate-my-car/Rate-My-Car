@@ -17,7 +17,7 @@ const Dashboard = (props) => {
         }).catch(err => console.log(err))
     }, [])
 
-
+    console.log(featuredCars)
     return(
         <div className='dashboard-container'>
             <div className='hero-container'>
@@ -35,7 +35,9 @@ const Dashboard = (props) => {
                 
                 {featuredCars.map(cars => {
                     return(
-                        <div className='featured-vehicle-container'>
+                        
+
+                        <div className='featured-vehicle-container' onClick={() => props.history.push(`/vehicles/${cars.car_id}`)}>
                             <img className='featured-vehicle-img' src={cars.car_image}/>
                             <h3 className='featured-vehicle-title'>{cars.year} {cars.make} {cars.model}</h3>
                             <p className='featured-vehicle-mileage'>Mileage: {cars.milage}</p>

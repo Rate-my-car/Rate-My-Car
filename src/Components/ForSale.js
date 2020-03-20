@@ -39,7 +39,7 @@ const ForSale = (props) => {
 
                 {carsForSale.map(carsForSale => {
                     return(
-                        <div className='car-for-sale-container'>
+                        <div className='car-for-sale-container' >
                             <img className='car-for-sale-img' src={carsForSale.car_image} />
                             <div className='car-for-sale-info-container'>
                                 <div className='car-for-sale-title-location'>
@@ -49,7 +49,7 @@ const ForSale = (props) => {
                                 <p className='car-for-sale-description'>{carsForSale.description}</p>
                                 <h3 className='car-for-sale-price'>Price: ${(new Intl.NumberFormat().format(carsForSale.price))}</h3>
                             </div>
-                            <button className='car-for-sale-details-btn'>Details</button>                            
+                            <button className='car-for-sale-details-btn' onClick={() => props.history.push(`/vehicles/${carsForSale.car_id}`)}>Details</button>                            
                         </div>
                     )
                 })}
