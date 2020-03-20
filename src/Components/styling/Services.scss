@@ -1,0 +1,27 @@
+@import "./variables";
+@import "./media-queries";
+@import "./typography";
+
+.maintenance-table-container {
+    overflow: scroll;
+    @include small-phone {
+      margin: 0 auto 30px auto;
+      width: 325px;
+    }
+    @include large-phone {
+      width: 540px;
+    }
+    @include portrait-tablet {
+      width: 708px;
+    }
+    @include landscape-tablet {
+      width: 872px;
+    }
+    @include desktop {
+      width: 1140px;
+    }
+  }
+
+  .maintenance-table{
+      width: 100%;
+  }

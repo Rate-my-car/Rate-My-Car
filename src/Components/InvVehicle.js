@@ -17,7 +17,8 @@ const InvVehicle = (props) => {
                                       model: res.data[0].model,
                                       year: res.data[0].year,
                                       vin: res.data[0].vin,
-                                      car_id: res.data[0].car_id
+                                      car_id: res.data[0].car_id,
+                                      car_image: res.data[0].car_image,
                                      
             })
         })
@@ -57,42 +58,53 @@ const InvVehicle = (props) => {
     }
     return(
         <div className='inv-vehicle-container'>
-            <img src = {mounting.car_image}/>
-            <span>{mounting.make}</span>
-            <span>{mounting.model}</span>
-            <span>{mounting.year}</span>
-            <span>{mounting.vin}</span>
-            
+            <div className='inv-vehicle-img-info-container'>
+                <img className='inv-vehicle-img' src = {mounting.car_image}/>
+                <div className='inv-vehicle-info-container'>
+                    <h1 className='inv-vehicle-name'>{mounting.year} {mounting.make} {mounting.model}</h1>
+                    <h3 className='inv-vehicle-vin'>VIN: {mounting.vin}</h3>
+                    <hr/>
+                    {currentOwner === props.user.user_id ? 
+                        rendering.posting ? (
+                            <div>
+                                <div className='pop-up-container'>
+                                    <h2 className='popup-heading'>Post Vehicle<br/>For Sale</h2>
+                                    <hr className='centered-line' id='inv-popup-line'/>
+                                    <textarea className='popup-input' placeholder='Vehicle Description and Contact Info' onChange={(e)=>handleInputs({...inputs, description: e.target.value})} />                        
+                                    <input className='popup-input' placeholder='Mileage' onChange={(e)=>handleInputs({...inputs, milage: e.target.value})} />
+                                    <input className='popup-input' placeholder='Price' type='number' onChange={(e)=>handleInputs({...inputs, price: e.target.value})} />
+                                    <input className='popup-input' placeholder='Location' onChange={(e)=>handleInputs({...inputs, location: e.target.value})} />
+                                    <div className='popup-buttons-container'>
+                                        <button className='cancel-btn' onClick={clicker2}>Cancel</button>
+                                        <button className='save-btn' onClick={postCar}>Post For Sale</button>
+                                    </div>
+                                </div>
+                                <div className='background-overlay' onClick={clicker2}></div>
+                            </div>
+                        ):(
+                            <button className='post-vehicle-for-sale-btn' onClick={clicker2}>Post Vehicle for Sale</button>
+                        ):
+                        null
+                    }
+                    <Ownership id={props.match.params.id}/>
+                </div>
+                
+            </div>
+
             <Services id={props.match.params.id} />
 
-           {/* {console.log(currentOwner,props.user.user_id)} */}
             { currentOwner === props.user.user_id ? 
             !rendering.bool ? (
-                <button onClick={clicker}>Post Maintenance</button>
+                <div className='add-maintenance-btn-container'>
+                    <button className='add-maintenance-btn' onClick={clicker}>Add Maintenance</button>
+                </div>
             ):(
                 <ServiceForm clicker={clicker} id={props.match.params.id} />
             ) : null} 
 
                     
 
-                {/* {console.log(mounting.car_id)} */}
-            <Ownership id={props.match.params.id}/>
-            {/* <button onClick= {() => this.props.history.push(`/postforsale`)}> SELL VEHICLE </button> */}
-
-            {currentOwner === props.user.user_id ? 
-            rendering.posting ? (
-                <div>
-                    <input placeholder='Description' onChange={(e)=>handleInputs({...inputs, description: e.target.value})} />                        
-                    <input placeholder='Milage' onChange={(e)=>handleInputs({...inputs, milage: e.target.value})} />
-                    <input placeholder='Price' type='number' onChange={(e)=>handleInputs({...inputs, price: e.target.value})} />
-                    <input placeholder='Location' onChange={(e)=>handleInputs({...inputs, location: e.target.value})} />
-                  
-                    <button onClick={postCar}>Add Car For Sale</button>
-                </div>):(
-                    <button onClick={clicker2}>Post for Sale</button>
-                ):
-                null
-            }
+            
         </div>
     )
 }

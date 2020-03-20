@@ -1,0 +1,72 @@
+@import "./variables";
+@import "./media-queries";
+@import "./typography";
+
+.ownership-table-container {
+  overflow: scroll;
+  @include small-phone {
+    margin: 30px auto 30px auto;
+    width: 325px;
+  }
+  @include large-phone {
+    width: 300px;
+    margin: 30px auto 30px auto;
+}
+  @include portrait-tablet {
+    width: 300px;
+    margin: 30px auto 30px auto;
+  }
+  @include landscape-tablet {
+    width: 470px;
+    margin: 30px auto 30px auto;
+  }
+  @include desktop {
+    width: 602px;
+  }
+}
+
+.table-name {
+  width: 100%;
+  text-align: center;
+  background-color: $input-light-text;
+  height: 50px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid $input-light-text;
+  border-right: 1px solid $input-light-text;
+  margin-bottom: 0;
+  box-sizing: border-box;
+}
+
+.ownership-table {
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  border-bottom: 1px solid $input-light-text;
+}
+
+th {
+  text-align: left;
+  padding: 8px 10px;
+  @include heading-4;
+  background-color: $lighter-gray;
+  white-space: nowrap;
+  border-left: 1px solid $input-light-text;
+  border-right: 1px solid $input-light-text;
+}
+
+tr:nth-child(even) {
+  background: $lightest-gray;
+}
+
+td{
+    text-align: left;
+    padding: 8px 10px;
+    @include body-copy;
+    border-left: 1px solid $input-light-text;
+    border-right: 1px solid $input-light-text;
+}

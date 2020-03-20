@@ -9,14 +9,23 @@ const ServiceForm = (props) => {
         const {id} = props
         axios.post('/api/maintenance', {id, description, service_done, milage, date_serviced, receipt}).then(props.clicker)
     }
+
+    console.log(props)
     return(
         <div>
-            <input onChange={(e)=> handleInputs({...inputs, service_done: e.target.value})} placeholder='Service Completed' />
-            <textarea onChange={(e)=> handleInputs({...inputs, description: e.target.value})} placeholder='Description' />
-            <input onChange={(e)=> handleInputs({...inputs, milage: e.target.value})} placeholder='Milage' type='number'/>
-            <input onChange={(e)=> handleInputs({...inputs, date_serviced: e.target.value})} placeholder='Date Serviced' type='date' />
-            <h1>S3 thing i don't know how to do</h1>
-            <button onClick={submit}>Add Maintenance</button>
+            <div className='pop-up-container'>
+                <h2 className='popup-heading'>Add Maintenance</h2>
+                <hr className='centered-line' id='inv-popup-line'/>
+                <input className='popup-input' onChange={(e)=> handleInputs({...inputs, service_done: e.target.value})} placeholder='Service Completed' />
+                <textarea className='popup-input' onChange={(e)=> handleInputs({...inputs, description: e.target.value})} placeholder='Description' />
+                <input className='popup-input' onChange={(e)=> handleInputs({...inputs, milage: e.target.value})} placeholder='Mileage' type='number'/>
+                <input className='popup-input' onChange={(e)=> handleInputs({...inputs, date_serviced: e.target.value})} placeholder='Date Serviced' type='date' />
+                <div className='popup-buttons-container'>
+                    <button className='cancel-btn' onClick={props.clicker}>Cancel</button>
+                    <button className='save-btn' onClick={submit}>Add</button>
+                </div>
+            </div>
+            <div className='background-overlay' onClick={props.clicker}></div>
         </div>
     )
 }
