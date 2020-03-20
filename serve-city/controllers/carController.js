@@ -36,9 +36,12 @@ module.exports = {
         db.cars.get_for_sale(car_image, make, model, year, owner, milage, price)
         .then((results) => res.status(200).send(results))
     },
-
-
-    
+    async searchCar(req, res){
+        const db = req.app.get('db')
+        const {model} = req.body
+        let cars = await db.cars.search_car(model)
+        res.status(200).send(cars)
+    },
     async getCar(req,res){
         const db = req.app.get('db')
         const {id} = req.params

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import useAxios from '../hooks/useAxios'
+import axios from 'axios'
 import ReactDOM from 'react-dom'
 import './styling/ForSale.scss'
 
@@ -10,7 +11,10 @@ const ForSale = (props) => {
     const [searchTerm, setSearchTerm] = useState('')
     const [searchResults, setSearchResults] = useState([])
     const handleChange = e => {
-        setSearchTerm(e.target.value)
+        let model = e.target.value
+        axios.post('/api/search', {model}).then(res => {
+            setSearchResults({searchResults: res.data})
+        })
     }
 
     useEffect(() => {
