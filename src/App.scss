@@ -1,5 +1,6 @@
 @import './Components/styling/variables';
 @import './Components/styling/typography';
+@import './Components/styling/inputs';
 
 
 .App {
@@ -42,4 +43,19 @@ h5{
 
 p{
   @include body-copy;
+}
+
+textarea{
+  @include input-field;
+  height: 100px;
+  padding-top: 8px;
+
+}
+
+textarea::placeholder{
+  @include input-placeholder
+}
+
+textarea:focus{
+  @include input-focus
 }

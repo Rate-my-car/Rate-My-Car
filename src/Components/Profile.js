@@ -156,7 +156,7 @@ const saveChanges = (user_id,userPicture, firstName, lastName, email) => {
 
             {edit ? (
                 <div >
-                    <div className='edit-profile-pop-up-container'>
+                    <div className='pop-up-container'>
                         <h2 className='popup-heading'>Update Profile</h2>
                         <hr className='centered-line'/>
                         {userPicture ? (
@@ -176,7 +176,7 @@ const saveChanges = (user_id,userPicture, firstName, lastName, email) => {
                         <input placeholder='First Name' className='popup-input' onChange = {e => setFirstName(e.target.value)}/>
                         <input placeholder='Last Name' className='popup-input' onChange = {e => setLastName(e.target.value)}/>
                         <input placeholder='Email' className='popup-input' onChange = {e => setEmail(e.target.value)} /> 
-                        <div className='edit-profile-btns'>
+                        <div className='popup-buttons-container'>
                             <button className='cancel-btn' onClick={toggleEdit}>Cancel</button>
                             <button className='save-btn' onClick = {() => saveChanges(props.user.user_id,userPicture, firstName,lastName, email)}>Save</button>
                         </div>

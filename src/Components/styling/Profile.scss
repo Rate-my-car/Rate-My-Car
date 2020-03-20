@@ -176,11 +176,14 @@
   }
 }
 
-.edit-profile-pop-up-container {
+.pop-up-container {
   z-index: 1000;
   position: fixed;
   background-color: white;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   @include small-phone {
     top: 50%;
     left: 50%;
@@ -216,6 +219,11 @@
     width: 315px;
     padding: 30px 0;
   }
+}
+
+.popup-heading{
+  width: 250px;
+  text-align: center;
 }
 
 .dropzone-btn {
@@ -247,7 +255,7 @@
   margin-top: 30px;
 }
 
-.edit-profile-btns {
+.popup-buttons-container {
   display: flex;
   justify-content: space-between;
   margin: 20px auto 0 auto;

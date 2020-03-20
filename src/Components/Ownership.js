@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
+import './styling/Ownership.scss'
 
 const Ownership = (props) => {
     const [array, handleArray] = useState({ownership: []})
@@ -18,13 +19,14 @@ const Ownership = (props) => {
         )
     })
     return(
-        <div>
-            <table role='table'>
-            <thead role="rowgroup">
-                <tr role="row">
-                    <th role="columnheader">Usernames</th>
-                </tr>
-            </thead>
+        <div className='ownership-table-container'>
+            <h2 className='table-name'>Ownership History</h2>
+            <table role='table' className='ownership-table'>
+                <thead role="rowgroup">
+                    <tr role="row">
+                        <th role="columnheader" className='column-header' nowrap>Usernames</th>
+                    </tr>
+                </thead>
                 <tbody role='rowgroup'>
                     {mappedArr}
                 </tbody>
