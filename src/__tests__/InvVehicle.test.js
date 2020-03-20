@@ -50,3 +50,12 @@ it('Renders out a Profile', () => {
     );
     expect(container.textContent).toContain(text);
 });
+
+it('Routes to details', () => {
+  const {container} = render(
+    <MemoryRouter>
+      <InvVehicle/>>
+    </MemoryRouter>,
+  );
+  expect(container.textContent).toContain(text);
+})
